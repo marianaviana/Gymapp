@@ -28,5 +28,5 @@ Things you may want to cover:
 * ...
 
 # Developers
-[Mariana Viana](github.com/marianaviana),
-[Luiza Melo](github.com/meloluiza)
+[Mariana Viana](http://github.com/marianaviana),
+[Luiza Melo](http://github.com/meloluiza)
