@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<!-- Website Overview -->
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">Equipamentos</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <input class="form-control" type="text" placeholder="Pesquisar equipamento">
+      </div>
+    </div>
+    <br>
+    <table class ="table table-striped table-hover" >
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Quantidade</th>
+          <th>Data de aquisição</th>
+          <th>Peso</th>
+          <th>Peso Máximo</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @equipment.each do |equipment| %>
+        <tr>
+          <td><%= equipment.name %></td>
+          <td><%= equipment.quantity %></td>
+          <td><%= equipment.aquisition_date %></td>
+          <td><%= equipment.weight %></td>
+          <td><%= equipment.max_weight %></td>
+          <td><%= link_to 'exibir', equipment, class: "btn btn-default" %></td>
+          <td><%= link_to 'editar', edit_equipment_path(equipment), class: "btn btn-default" %></td>
+          <td><%= link_to 'remover', equipment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= link_to 'Novo equipamento', new_equipment_path, class: "btn btn-default"%>
+
+

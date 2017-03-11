@@ -1,0 +1,25 @@
+<%= simple_form_for(equipment) do |f| %>
+<div class="field">
+  <%= f.input :name %>
+</div>
+
+<div class="field">
+  <%= f.input :quantity %>
+</div>
+
+<div class="field">
+  <%= f.input :aquisition_date, as: :date %>
+</div>
+
+<div class="field">
+  <%= f.input :weight %>
+</div>
+
+<div class="field">
+  <%= f.input :max_weight %>
+</div>
+
+<div class="actions">
+  <%= f.button :submit, class: 'btn btn-success' %>
+</div>
+<% end %>

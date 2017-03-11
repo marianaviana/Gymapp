@@ -1,0 +1,18 @@
+<%= simple_form_for(@employee) do |f| %>
+<%= f.error_notification %>
+
+<div class="form-inputs">
+  <%= f.input :avatar, as: :file %>
+  <%= f.input :name %>
+  <%= f.input :position %>
+  <%= f.input :birth_date %>
+  <%= f.input :rg %>
+  <%= f.input :cpf %>
+  <%= f.input :telephone %>
+  <%= f.input :admission_date %>
+</div>
+
+<div class="form-actions">
+  <%= f.button :submit %>
+</div>
+<% end %>

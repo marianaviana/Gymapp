@@ -1,0 +1,34 @@
+<p>
+  <%= image_tag @employee.avatar.url(:medium), class: 'img-thumbnail' %>
+</p>
+<h1><%= @employee.name %></h1>
+<h3><%= @employee.position %><h3>
+
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>Data de Nascimento</td>
+        <td><%= @employee.birth_date.strftime("%d/%m/%Y") %></td>
+      </tr>
+      <tr>
+        <td>RG</td>
+        <td><%= @employee.rg %></td>
+      </tr>
+      <tr>
+        <td>cpf</td>
+        <td><%= @employee.cpf %></td>
+      </tr>
+      <tr>
+        <td>Telefone</td>
+        <td><%= @employee.telephone %></td>
+      </tr>
+      <tr>
+        <td>Admissão</td>
+        <td><%= @employee.admission_date.strftime("%d/%m/%Y") %></td>
+      </tr>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

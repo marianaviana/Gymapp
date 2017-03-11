@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <head>
+    <title>Gymapp</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <header class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">Gymapp</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <% unless user_signed_in? %>
+            <li><%= link_to "Entrar", new_user_session_path %></li>
+            <% end %>
+
+            <% if user_signed_in? %>
+            <li><%= link_to "Equipamentos", equipment_index_path %></li>
+            <li><%= link_to "Funcionários", employees_path %></li>
+            <li><%= link_to "Sair", destroy_user_session_path, method: 'delete' %></li>
+            <% end %>
+          </ul>
+          <%= form_tag "#", class: "navbar-form pull-right", method: :get, role: "search" do %>
+          <div class="input-group">
+            <%= text_field_tag :q, @query, class: "form-control", placeholder: "Procurar" %>
+            <div class="input-group-btn">
+              <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </header>
+    
+    <section id="main">     
+      <div class="container">
+
+        <% if user_signed_in? %>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="list-group">
+              <a href="index.html" class="list-group-item active main-color-bg">
+                <i class="material-icons">settings</i> Painel de Controle
+              </a>
+              <a href="fichas.html" class="list-group-item"><i class="material-icons">description</i> Fichas <span class="badge">12</span></a>
+              <a href="equipamentos.html" class="list-group-item"><i class="material-icons">fitness_center</i> Equipamentos <span class="badge">33</span></a>
+              <a href="clientes.html" class="list-group-item"><i class="material-icons">accessibility</i> Clientes <span class="badge">203</span></a>
+              <a href="clientes.html" class="list-group-item"><i class="material-icons">supervisor_account</i> Funcionários <span class="badge">03</span></a>
+            </div>
+
+
+            <div class="well">
+
+              <h4>Avaliações em dia</h4>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                  100%
+                </div>
+              </div>
+              <h4>Avaliações Próximas</h4>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 15%;">
+                  15%
+                </div>
+              </div>
+
+              <h4>Avaliações Atrasadas</h4>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                  0%
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-9">
+            <!-- Website Overview -->
+            <% end %>
+            <% if notice %>
+            <div class="alert alert-success fade in" data-alert="alert">
+              <a class="close" data-dismiss='alert' href="#">×</a>
+              <p><%= notice %></p>
+            </div>
+            <% end %>
+
+            <% if alert %>
+            <div class="alert alert-danger fade in" data-alert="alert">
+              <a class="close" data-dismiss='alert' href="#">×</a>
+              <p><%= alert %></p>
+            </div>
+            <% end %>
+
+            <%= yield %>
+            <% if user_signed_in? %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+    <footer id="footer">
+      <p>Gymapp - Sistema de Gerenciamento de Academias, &copy; 2017</p>
+    </footer>
+  </body>
+  </html>
