@@ -1,5 +1,11 @@
-<h1>New Equipment</h1>
+<!-- Website Overview -->
+<div class="panel panel-default">
+	<div class="panel-heading main-color-bg">
+		<h3 class="panel-title">Novo equipamento</h3>
+	</div>
+	<div class="panel-body">
+		<%= render 'form', equipment: @equipment %>
 
-<%= render 'form', equipment: @equipment %>
-
-<%= link_to 'Back', equipment_index_path %>
+		<%= link_to 'Back', equipment_index_path %>
+	</div>
+</div>

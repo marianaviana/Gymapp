@@ -1,6 +1,12 @@
-<h1>Editing Employee</h1>
+<!-- Website Overview -->
+<div class="panel panel-default">
+	<div class="panel-heading main-color-bg">
+		<h3 class="panel-title">Editar Funcionário</h3>
+	</div>
+	<div class="panel-body">
+		<%= render 'form', employee: @employee %>
 
-<%= render 'form', employee: @employee %>
-
-<%= link_to 'Show', @employee %> |
-<%= link_to 'Back', employees_path %>
+		<%= link_to 'Show', @employee %> |
+		<%= link_to 'Back', employees_path %>
+	</div>
+</div>

@@ -1,6 +1,12 @@
-<h1>Editing Equipment</h1>
+<!-- Website Overview -->
+<div class="panel panel-default">
+	<div class="panel-heading main-color-bg">
+		<h3 class="panel-title">Editar Equipamento</h3>
+	</div>
+	<div class="panel-body">
+		<%= render 'form', equipment: @equipment, class: "form-group" %>
 
-<%= render 'form', equipment: @equipment %>
-
-<%= link_to 'Show', @equipment %> |
-<%= link_to 'Back', equipment_index_path %>
+		<%= link_to 'exibir equipamento', @equipment %> |
+		<%= link_to 'voltar', equipment_index_path %>
+	</div>
+</div>
