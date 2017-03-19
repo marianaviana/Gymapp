@@ -59,9 +59,16 @@
                 <i class="material-icons">settings</i> Painel de Controle
               </a>
               <a href="fichas.html" class="list-group-item"><i class="material-icons">description</i> Fichas <span class="badge">12</span></a>
-              <a href="equipamentos.html" class="list-group-item"><i class="material-icons">fitness_center</i> Equipamentos <span class="badge">33</span></a>
-              <a href="clientes.html" class="list-group-item"><i class="material-icons">accessibility</i> Clientes <span class="badge">203</span></a>
-              <a href="clientes.html" class="list-group-item"><i class="material-icons">supervisor_account</i> Funcionários <span class="badge">03</span></a>
+              <%= link_to(equipment_index_path, class:'list-group-item') do %>
+              <i class="material-icons">fitness_center</i> Equipamentos <span class="badge"><%= Equipment.all.size %></span>
+              <% end %>
+              <%= link_to(clients_path, class:'list-group-item') do %>
+              <i class="material-icons">accessibility</i> Clientes <span class="badge"><%= Client.all.size %></span>
+              <% end %>
+              <%= link_to(employees_path, class:'list-group-item') do %>
+              <i class="material-icons">supervisor_account</i> Funcionários <span class="badge"><%= Employee.all.size %></span>
+              <% end %>
+
             </div>
 
 

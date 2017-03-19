@@ -71,4 +71,4 @@ class EquipmentController < ApplicationController
     def equipment_params
       params.require(:equipment).permit(:name, :quantity, :aquisition_date, :weight, :max_weight)
     end
-end
+  end

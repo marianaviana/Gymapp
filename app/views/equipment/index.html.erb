@@ -29,7 +29,7 @@
         <tr>
           <td><%= equipment.name %></td>
           <td><%= equipment.quantity %></td>
-          <td><%= equipment.aquisition_date %></td>
+          <td><%= date_formatter(equipment.aquisition_date) %></td>
           <td><%= equipment.weight %></td>
           <td><%= equipment.max_weight %></td>
           <td><%= link_to 'exibir', equipment, class: "btn btn-default" %></td>

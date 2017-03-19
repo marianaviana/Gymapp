@@ -1,26 +1,26 @@
 <%= simple_form_for(equipment) do |f| %>
 <div class="field">
 
-	<%= f.input :name %>
+	<%= f.input :name, label:'Nome' %>
 </div>
 
 <div class="field">
-	<%= f.input :quantity %>
+	<%= f.input :quantity, label:'Quantidade' %>
 </div>
 
 <div class="field">
-	<%= f.input :aquisition_date, as: :date %>
+	<%= f.input :aquisition_date, as: :date, label:'Data de Aquisição', html5:true %>
 </div>
 
 <div class="field">
-	<%= f.input :weight %>
+	<%= f.input :weight, label:'Peso do equipamento' %>
 </div>
 
 <div class="field">
-	<%= f.input :max_weight %>
+	<%= f.input :max_weight, label:'Peso máximo suportado' %>
 </div>
 
 <div class="actions">
-	<%= f.button :submit, class: 'btn btn-success' %>
+	<%= f.button :submit, 'Criar Equipamento', class: 'btn btn-success' %>
 </div>
 <% end %>
