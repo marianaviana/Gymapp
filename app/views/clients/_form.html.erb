@@ -1,0 +1,26 @@
+<%= simple_form_for(@client) do |f| %>
+<%= f.error_notification %>
+
+<div class="form-inputs">
+  <%= f.input :avatar, as: :file %>
+  <%= f.input :name %>
+  <%= f.input :gender, collection: ['Feminino', 'Masculino'], include_blank: false %>
+  <%= f.input :birth_date, html5:true %>
+  <%= f.input :rg %>
+  <%= f.input :cpf %>
+  <%= f.input :adress %>
+  <%= f.input :telephone %>
+  <%= f.input :email %>
+  <%= f.input :disabilities %>
+  <%= f.input :blood_type %>
+  <%= f.input :allergy %>
+  <%= f.input :obs %>
+  <%= f.input :subscription_date %>
+  <%= f.input :payment_date %>
+  <%= f.input :attachment, as: :file %>
+</div>
+
+<div class="form-actions">
+  <%= f.button :submit %>
+</div>
+<% end %>
