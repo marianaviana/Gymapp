@@ -30,6 +30,7 @@
 
             <% if user_signed_in? %>
             <li><%= link_to "Equipamentos", equipment_index_path %></li>
+            <li><%= link_to "Clientes", clients_path %></li>
             <li><%= link_to "Funcionários", employees_path %></li>
             <li><%= link_to "Sair", destroy_user_session_path, method: 'delete' %></li>
 
