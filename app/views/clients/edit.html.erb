@@ -1,6 +1,12 @@
-<h1>Editing Client</h1>
+<!-- Website Overview -->
+<div class="panel panel-default">
+	<div class="panel-heading main-color-bg">
+		<h3 class="panel-title">Editing Client</h3>
+	</div>
+	<div class="panel-body">
+		<%= render 'form', client: @client %>
 
-<%= render 'form', client: @client %>
-
-<%= link_to 'Show', @client %> |
-<%= link_to 'Back', clients_path %>
+		<%= link_to 'Show', @client %> |
+		<%= link_to 'Back', clients_path %>
+	</div>
+</div>
