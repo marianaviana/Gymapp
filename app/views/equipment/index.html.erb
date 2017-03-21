@@ -34,7 +34,7 @@
           <td><%= equipment.max_weight %></td>
           <td><%= link_to 'exibir', equipment, class: "btn btn-default" %></td>
           <td><%= link_to 'editar', edit_equipment_path(equipment), class: "btn btn-default" %></td>
-          <td><%= link_to 'remover', equipment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          <td><%= link_to 'remover', equipment, method: :delete, data: { confirm: 'Você tem certeza que deseja remover?' }, class: "btn btn-danger" %></td>
         </tr>
         <% end %>
       </tbody>
