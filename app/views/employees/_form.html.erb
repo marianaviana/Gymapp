@@ -2,17 +2,17 @@
 <%= f.error_notification %>
 
 <div class="form-inputs">
-	<%= f.input :avatar, as: :file %>
-	<%= f.input :name %>
-	<%= f.input :position %>
-	<%= f.input :birth_date, html5:true %>
-	<%= f.input :rg %>
-	<%= f.input :cpf %>
-	<%= f.input :telephone %>
-	<%= f.input :admission_date, html5:true %>
+	<%= f.input :avatar, as: :file, label: 'Foto:' %>
+	<%= f.input :name, label: 'Nome:' %>
+	<%= f.input :position, label:'Função:' %>
+	<%= f.input :birth_date, html5:true, label: 'Data de Nascimento:' %>
+	<%= f.input :rg, label: 'RG:' %>
+	<%= f.input :cpf, label: 'CPF:' %>
+	<%= f.input :telephone, label: 'Telefone:' %>
+	<%= f.input :admission_date, html5:true, label:'Data de Nascimento:' %>
 </div>
 
 <div class="form-actions">
-	<%= f.button :submit, class: 'btn btn-success' %>
+	<%= f.button :submit, 'Criar Funcionário', class: 'btn btn-success' %>
 </div>
 <% end %>
