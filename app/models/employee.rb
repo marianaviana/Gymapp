@@ -16,6 +16,4 @@ class Employee < ApplicationRecord
 	def upcase_name
 		self.name = self.name.upcase
 	end
-
-
 end

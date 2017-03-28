@@ -13,10 +13,12 @@
       <% end %>
     </div>
     <div class="col-md-3">
+      <%= link_to(clients_gymcards_path) do %>
       <div class="well dash-box">
-        <h2><i class="material-icons">description</i> 12</h2>
+        <h2><i class="material-icons">description</i> <%= Gymcard.all.size %></h2>
         <h4>Fichas</h4>
       </div>
+      <% end %>
     </div>
     <div class="col-md-3">
       <%= link_to(equipment_index_path) do %>

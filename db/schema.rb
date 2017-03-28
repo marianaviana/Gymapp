@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170319212440) do
+ActiveRecord::Schema.define(version: 20170328030933) do
 
   create_table "clients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20170319212440) do
     t.datetime "avatar_updated_at"
   end
 
+  create_table "cycles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "index"
+    t.integer  "gymcard_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "position"
@@ -65,6 +72,16 @@ ActiveRecord::Schema.define(version: 20170319212440) do
     t.datetime "updated_at",                 null: false
   end
 
+  create_table "gymcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "employee_id"
+    t.integer  "client_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "name"
+    t.index ["client_id"], name: "index_gymcards_on_client_id", using: :btree
+    t.index ["employee_id"], name: "index_gymcards_on_employee_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -82,4 +99,18 @@ ActiveRecord::Schema.define(version: 20170319212440) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "workouts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "serie"
+    t.integer  "sequence"
+    t.integer  "load"
+    t.text     "obs",          limit: 65535
+    t.integer  "equipment_id"
+    t.integer  "cycle_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_foreign_key "gymcards", "clients"
+  add_foreign_key "gymcards", "employees"
 end

@@ -65,7 +65,9 @@
               <a href="index.html" class="list-group-item active main-color-bg">
                 <i class="material-icons">settings</i> Painel de Controle
               </a>
-              <a href="fichas.html" class="list-group-item"><i class="material-icons">description</i> Fichas <span class="badge">12</span></a>
+              <%= link_to(clients_gymcards_path, class:'list-group-item') do %>
+              <i class="material-icons">description</i> Fichas <span class="badge"><%= Gymcard.all.size %></span>
+              <% end %>
               <%= link_to(equipment_index_path, class:'list-group-item') do %>
               <i class="material-icons">fitness_center</i> Equipamentos <span class="badge"><%= Equipment.all.size %></span>
               <% end %>
