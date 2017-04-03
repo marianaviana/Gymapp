@@ -1,19 +1,23 @@
 class GymcardsController < ApplicationController
 	def clients
-		@clients = Client.all
+		@clients 	= Client.all
 	end
 
 	def index
-		@client = Client.find(params[:client_id])
+		@client 	= Client.find(params[:client_id])
 		@gymcards = @client.gymcards 	
 	end
 
 	def new
-
+		@client 	= Client.find(params[:client_id])
+		@gymcard = Gymcard.new 
 	end
 
 	def create
-
+		byebug
+		@gymcard = Gymcard.create(gymcards_params)
+		@cycles = @gymcard.cycles.build
+		@gymcard.save
 	end
 
 	def show
@@ -35,7 +39,9 @@ class GymcardsController < ApplicationController
 	private
 
 	def gymcards_params
-		params.require(:employee).permit(:name, :position, :birth_date, :rg, :cpf, :telephone, :admission_date, :avatar)
+		params.require(:gymcard).permit(:name, :client_id, :employee_id, 
+			cycles_attributes: [:index, :_destroy, 
+				workouts_attributes: [:id, :name, :serie, :sequence, :load, :obs, :_destroy]])
 	end
 
 end 

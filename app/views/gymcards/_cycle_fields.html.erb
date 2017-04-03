@@ -1,0 +1,10 @@
+<div class="nested-fields">
+	<%= f.input :index %>
+	<div id='workouts'>
+		<%= f.simple_fields_for :workouts do |workout| %>
+		<%= render 'workout_fields', :f => workout %>
+		<% end %>
+		<%= link_to_add_association 'Adicionar Exercício', f, :workouts %>
+	</div>
+	<%= link_to_remove_association 'Remover Ciclo', f %>
+</div>
