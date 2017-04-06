@@ -1,19 +1,19 @@
 <!-- Visão geral do site -->
 <div class="panel panel-default">
-	<div class="panel-heading main-color-bg">
-		<h3 class="panel-title">Nova Ficha</h3>
-	</div>
-	<div class="panel-body">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">Nova Ficha</h3>
+  </div>
+  <div class="panel-body">
+    <%= simple_form_for(@gymcard) do |f| %>
+      <div class="form-inputs">
+        <%= f.hidden_field :client_id, value: @client.id %>
+        <%= f.input :name, label: 'Nome:' %>
+      </div>
 
-		<%= simple_form_for @gymcard do |f| %>
-		<div id='cycles'>
-			<%= f.simple_fields_for :cycles do |cycle| %>
-			<%= render 'cycle_fields', :f => cycle %>
-			<% end %>
-			<%= link_to_add_association 'Adicionar Ciclo', f, :cycles %>
-		</div>
-		<%= f.submit %>
-		<% end %>
-		<%= link_to 'Voltar', gymcards_path(client_id: @client.id) %>
-	</div>
+      <div class="form-actions">
+        <%= f.button :submit, 'Criar Ficha', class: 'btn btn-success' %>
+      </div>
+    <% end %>
+    <%= link_to 'Voltar', gymcards_path(client_id: @client.id) %>
+  </div>
 </div>

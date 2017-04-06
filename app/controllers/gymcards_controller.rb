@@ -1,48 +1,58 @@
 class GymcardsController < ApplicationController
-	def clients
-		@clients 	= Client.all
-	end
+  def clients
+    @clients = Client.all
+  end
 
-	def index
-		@client 	= Client.find(params[:client_id])
-		@gymcards = @client.gymcards 	
-	end
+  def index
+    @client   = Client.find(params[:client_id])
+    @gymcards = @client.gymcards
+  end
 
-	def new
-		@client 	= Client.find(params[:client_id])
-		@gymcard = Gymcard.new 
-	end
+  def new
+    @client  = Client.find(params[:client_id])
+    @gymcard = Gymcard.new
+  end
 
-	def create
-		byebug
-		@gymcard = Gymcard.create(gymcards_params)
-		@cycles = @gymcard.cycles.build
-		@gymcard.save
-	end
+  def create
+    client            = Client.find(gymcards_params[:client_id])
+    @gymcard          = Gymcard.create(gymcards_params)
+    @gymcard.client   = client
+    @gymcard.employee = Employee.first
 
-	def show
+    @gymcard.save
 
-	end
+    redirect_to gymcards_path(client_id: client.id)
+  end
 
-	def edit
+  def show
+    @client   = Client.find(params[:client_id])
+    @gymcard = @client.gymcards.find(params[:id])
+  end
 
-	end
+  def edit
 
-	def update
+  end
 
-	end
+  def update
 
-	def destroy
+  end
 
-	end
+  def destroy
+    @client   = Client.find(params[:client_id])
+    @gymcard = Gymcard.find(params[:id])
 
-	private
+    if @gymcard.update_attribute(:active, false)
+      redirect_to gymcards_path(client_id: @client.id),
+                  notice: 'Ciclo desativado com sucesso'
+    else
+      redirect_to gymcards_pathgym(client_id: @client.id),
+                  alert: 'Algum problema ocorreu tentando desativar o ciclo'
+    end\
+  end
 
-	def gymcards_params
-		params.require(:gymcard).permit(:name, :client_id, :employee_id, 
-			cycles_attributes: [:index, :_destroy, 
-				workouts_attributes: [:id, :name, :serie, :sequence, :load, :obs, :_destroy]])
-	end
+  private
 
-end 
-
+  def gymcards_params
+    params.require(:gymcard).permit(:name, :client_id, :employee_id)
+  end
+end

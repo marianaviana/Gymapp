@@ -1,0 +1,17 @@
+<div class="nested-fields">
+  <div class="panel panel-default">
+    <div class="panel-heading main-color-bg">
+      <h3 class="panel-title">Novo Exercício</h3>
+    </div>
+    <div class="form-inputs" style="padding: 10px;">
+      <%= f.input :name %>
+      <%= f.association :equipment, label: 'Equipamento' %>
+      <%= f.input :serie %>
+      <%= f.input :sequence %>
+      <%= f.input :load %>
+      <%= f.input :obs %>
+
+      <%= link_to_remove_association 'Remover Exercício', f, class: 'btn btn-success' %>
+    </div>
+  </div>
+</div>
