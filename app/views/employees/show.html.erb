@@ -12,7 +12,7 @@
         <tbody>
           <tr>
             <th>Data de Nascimento</th>
-            <td><%= @employee.birth_date.strftime("%d/%m/%Y") %></td>
+            <td><%= date_formatter(@employee.birth_date) %></td>
           </tr>
           <tr>
             <th>RG</th>
@@ -28,7 +28,7 @@
           </tr>
           <tr>
             <th>Admissão</th>
-            <td><%= @employee.admission_date.strftime("%d/%m/%Y") %></td>
+            <td><%= date_formatter(@employee.admission_date) %></td>
           </tr>
         </tr>
       </tbody>
