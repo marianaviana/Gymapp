@@ -12,55 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20170406221112) do
 
-  create_table "clients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "gender"
-    t.date     "birth_date"
-    t.string   "rg"
-    t.string   "cpf"
-    t.string   "adress"
-    t.string   "telephone"
-    t.string   "email"
-    t.text     "disabilities",            limit: 65535
-    t.string   "blood_type"
-    t.text     "allergy",                 limit: 65535
-    t.text     "obs",                     limit: 65535
-    t.date     "subscription_date"
-    t.integer  "payment_date"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
-    t.datetime "attachment_updated_at"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-  end
-
   create_table "cycles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "index"
     t.integer  "gymcard_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
-  end
-
-  create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "position"
-    t.date     "birth_date"
-    t.string   "rg"
-    t.string   "cpf"
-    t.string   "telephone"
-    t.date     "admission_date"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
   end
 
   create_table "equipment", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -80,8 +37,6 @@ ActiveRecord::Schema.define(version: 20170406221112) do
     t.datetime "updated_at",                 null: false
     t.string   "name"
     t.boolean  "active",      default: true
-    t.index ["client_id"], name: "index_gymcards_on_client_id", using: :btree
-    t.index ["employee_id"], name: "index_gymcards_on_employee_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -137,6 +92,4 @@ ActiveRecord::Schema.define(version: 20170406221112) do
     t.datetime "updated_at",                 null: false
   end
 
-  add_foreign_key "gymcards", "clients"
-  add_foreign_key "gymcards", "employees"
 end

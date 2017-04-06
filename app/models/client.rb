@@ -4,4 +4,10 @@ class Client < User
 
   has_attached_file :attachment
   has_many :gymcards
+
+  private
+
+  def password_required?
+    false
+  end
 end

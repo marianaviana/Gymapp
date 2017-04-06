@@ -13,6 +13,8 @@ class Employee < User
 
   before_save :upcase_name
 
+  has_many :gymcards
+
   def upcase_name
     self.name = self.name.upcase
   end

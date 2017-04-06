@@ -31,3 +31,5 @@
 </div>
 
 <%= link_to 'Nova Ciclo', new_gymcard_cycle_path(@gymcard), class: 'btn btn-success col-md-12' %>
+
+<%= link_to 'Voltar', gymcards_path(client_id: @gymcard.client.id) %>

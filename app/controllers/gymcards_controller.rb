@@ -25,7 +25,7 @@ class GymcardsController < ApplicationController
   end
 
   def show
-    @client   = Client.find(params[:client_id])
+    @client  = Client.find(params[:client_id])
     @gymcard = @client.gymcards.find(params[:id])
   end
 
@@ -38,7 +38,7 @@ class GymcardsController < ApplicationController
   end
 
   def destroy
-    @client   = Client.find(params[:client_id])
+    @client  = Client.find(params[:client_id])
     @gymcard = Gymcard.find(params[:id])
 
     if @gymcard.update_attribute(:active, false)
@@ -47,7 +47,7 @@ class GymcardsController < ApplicationController
     else
       redirect_to gymcards_pathgym(client_id: @client.id),
                   alert: 'Algum problema ocorreu tentando desativar o ciclo'
-    end\
+    end
   end
 
   private
