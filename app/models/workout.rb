@@ -1,4 +1,4 @@
 class Workout < ApplicationRecord
-	has_one :equipment
-	belongs_to :cycle
+  belongs_to :equipment, optional: true
+  belongs_to :cycle, optional: true
 end

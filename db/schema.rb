@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170402181232) do
+ActiveRecord::Schema.define(version: 20170406021126) do
 
   create_table "clients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170402181232) do
     t.integer  "gymcard_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -75,9 +76,10 @@ ActiveRecord::Schema.define(version: 20170402181232) do
   create_table "gymcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "employee_id"
     t.integer  "client_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "name"
+    t.boolean  "active",      default: true
     t.index ["client_id"], name: "index_gymcards_on_client_id", using: :btree
     t.index ["employee_id"], name: "index_gymcards_on_employee_id", using: :btree
   end
