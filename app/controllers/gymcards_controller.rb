@@ -17,7 +17,7 @@ class GymcardsController < ApplicationController
     client            = Client.find(gymcards_params[:client_id])
     @gymcard          = Gymcard.create(gymcards_params)
     @gymcard.client   = client
-    @gymcard.employee = Employee.first
+    @gymcard.employee = current_user
 
     @gymcard.save
 
