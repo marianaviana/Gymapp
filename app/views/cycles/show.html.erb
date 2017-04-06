@@ -1,0 +1,37 @@
+<!-- Visão geral do site -->
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title"><%= @cycle.name %> - <%= @cycle.index %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-12">
+      <table class ="table table-striped table-hover" >
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Equipamento</th>
+            <th>Série</th>
+            <th>Sequência</th>
+            <th>Peso</th>
+            <th>obs</th>
+            <th colspan="1"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cycle.workouts.each do |workout| %>
+            <tr>
+              <td><%= workout.name %></td>
+              <td><%= workout.equipment.name %></td>
+              <td><%= workout.serie %></td>
+              <td><%= workout.sequence %></td>
+              <td><%= workout.load %></td>
+              <td><%= workout.obs %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= link_to 'Voltar', gymcard_cycles_path(@gymcard) %>
+    </div>
+  </div>
+</div>
