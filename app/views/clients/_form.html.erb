@@ -13,7 +13,7 @@
   <p class="help-block">Somente números</p>
   <%= f.input :email, placeholder:'email@email.com', label: 'E-mail:' %>
   <%= f.input :disabilities, label: 'Necessidades Especiais:' %>
-  <%= f.input :blood_type, collection: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'], include_blank: false, label: 'Tipo Sanguíneo:' %>
+  <%= f.input :blood_type, collection: ['Não especificado', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'], include_blank: false, label: 'Tipo Sanguíneo:' %>
   <%= f.input :allergy, label: 'Alergias:' %>
   <%= f.input :obs, label: 'OBS.:' %>
   <%= f.input :subscription_date, html5:true, label: 'Data de Inscrição:' %>

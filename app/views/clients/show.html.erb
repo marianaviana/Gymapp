@@ -5,7 +5,11 @@
     </div>
     <div class="panel-body">
       <div class="col-md-12">
-        <%= image_tag @client.avatar.url(:medium), class: 'img-responsive img-thumbnail' %>
+        <div class="row">
+          <div class="col-xs-2 col-center-block">
+            <%= image_tag @client.avatar.url(:medium), class: 'img-responsive img-thumbnail img-circle' %>
+          </div>
+        </div>
 
         <table class ="table table-striped table-hover" >
           <tr>
