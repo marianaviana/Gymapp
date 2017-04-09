@@ -10,7 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406221112) do
+ActiveRecord::Schema.define(version: 20170409192757) do
+
+  create_table "assessments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "client_id"
+    t.integer  "employee_id"
+    t.float    "bodyfat",          limit: 24
+    t.float    "ideal_max",        limit: 24
+    t.float    "ideal_min",        limit: 24
+    t.float    "weight",           limit: 24
+    t.float    "height",           limit: 24
+    t.float    "ideal_min_weight", limit: 24
+    t.float    "ideal_max_weight", limit: 24
+    t.float    "fat_weight",       limit: 24
+    t.float    "lean_body_mass",   limit: 24
+    t.float    "fat_body_mass",    limit: 24
+    t.integer  "tricipital"
+    t.integer  "peitoral"
+    t.integer  "subescapular"
+    t.integer  "axilar_media"
+    t.integer  "suprailiaca"
+    t.integer  "abdominal"
+    t.integer  "coxa"
+    t.float    "neck",             limit: 24
+    t.float    "shoulder",         limit: 24
+    t.float    "chest",            limit: 24
+    t.float    "waits",            limit: 24
+    t.float    "abdomen",          limit: 24
+    t.float    "hip",              limit: 24
+    t.string   "right_arm"
+    t.string   "left_arm"
+    t.string   "right_forearm"
+    t.string   "left_forearm"
+    t.float    "right_thigh",      limit: 24
+    t.float    "left_thigh",       limit: 24
+    t.float    "right_calf",       limit: 24
+    t.float    "left_calf",        limit: 24
+    t.string   "result"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "cycles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "index"

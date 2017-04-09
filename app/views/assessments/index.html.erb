@@ -1,0 +1,93 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Assessments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Employee</th>
+      <th>Bodyfat</th>
+      <th>Ideal max</th>
+      <th>Ideal min</th>
+      <th>Weight</th>
+      <th>Height</th>
+      <th>Ideal min weight</th>
+      <th>Ideal max weight</th>
+      <th>Fat weight</th>
+      <th>Lean body mass</th>
+      <th>Fat body mass</th>
+      <th>Tricipital</th>
+      <th>Peitoral</th>
+      <th>Subescapular</th>
+      <th>Axilar media</th>
+      <th>Suprailiaca</th>
+      <th>Abdominal</th>
+      <th>Coxa</th>
+      <th>Neck</th>
+      <th>Shoulder</th>
+      <th>Chest</th>
+      <th>Waits</th>
+      <th>Abdomen</th>
+      <th>Hip</th>
+      <th>Right arm</th>
+      <th>Left arm</th>
+      <th>Right forearm</th>
+      <th>Left forearm</th>
+      <th>Right thigh</th>
+      <th>Left thigh</th>
+      <th>Right calf</th>
+      <th>Left calf</th>
+      <th>Result</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assessments.each do |assessment| %>
+      <tr>
+        <td><%= assessment.client_id %></td>
+        <td><%= assessment.employee_id %></td>
+        <td><%= assessment.bodyfat %></td>
+        <td><%= assessment.ideal_max %></td>
+        <td><%= assessment.ideal_min %></td>
+        <td><%= assessment.weight %></td>
+        <td><%= assessment.height %></td>
+        <td><%= assessment.ideal_min_weight %></td>
+        <td><%= assessment.ideal_max_weight %></td>
+        <td><%= assessment.fat_weight %></td>
+        <td><%= assessment.lean_body_mass %></td>
+        <td><%= assessment.fat_body_mass %></td>
+        <td><%= assessment.tricipital %></td>
+        <td><%= assessment.peitoral %></td>
+        <td><%= assessment.subescapular %></td>
+        <td><%= assessment.axilar_media %></td>
+        <td><%= assessment.suprailiaca %></td>
+        <td><%= assessment.abdominal %></td>
+        <td><%= assessment.coxa %></td>
+        <td><%= assessment.neck %></td>
+        <td><%= assessment.shoulder %></td>
+        <td><%= assessment.chest %></td>
+        <td><%= assessment.waits %></td>
+        <td><%= assessment.abdomen %></td>
+        <td><%= assessment.hip %></td>
+        <td><%= assessment.right_arm %></td>
+        <td><%= assessment.left_arm %></td>
+        <td><%= assessment.right_forearm %></td>
+        <td><%= assessment.left_forearm %></td>
+        <td><%= assessment.right_thigh %></td>
+        <td><%= assessment.left_thigh %></td>
+        <td><%= assessment.right_calf %></td>
+        <td><%= assessment.left_calf %></td>
+        <td><%= assessment.result %></td>
+        <td><%= link_to 'Show', assessment %></td>
+        <td><%= link_to 'Edit', edit_assessment_path(assessment) %></td>
+        <td><%= link_to 'Destroy', assessment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Assessment', new_assessment_path %>

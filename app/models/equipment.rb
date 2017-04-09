@@ -1,6 +1,6 @@
 class Equipment < ApplicationRecord
 	validates :name, presence: true
-	validates :name, uniqueness: {
+	validates :name, uniqueness:{
 		case_sensitive: false,
 		message:'Equipamento já cadastrado'
 	}
@@ -18,9 +18,9 @@ class Equipment < ApplicationRecord
 		message:'Precisa ser maior que 0'
 	}
 
-  before_save :upcase_name
+	before_save :upcase_name
 
-  def upcase_name
-    self.name = self.name.upcase
-  end
+	def upcase_name
+		self.name = self.name.upcase
+	end
 end

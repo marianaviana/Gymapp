@@ -1,0 +1,2 @@
+json.extract! assessment, :id, :client_id, :employee_id, :bodyfat, :ideal_max, :ideal_min, :weight, :height, :ideal_min_weight, :ideal_max_weight, :fat_weight, :lean_body_mass, :fat_body_mass, :tricipital, :peitoral, :subescapular, :axilar_media, :suprailiaca, :abdominal, :coxa, :neck, :shoulder, :chest, :waits, :abdomen, :hip, :right_arm, :left_arm, :right_forearm, :left_forearm, :right_thigh, :left_thigh, :right_calf, :left_calf, :result, :created_at, :updated_at
+json.url assessment_url(assessment, format: :json)
