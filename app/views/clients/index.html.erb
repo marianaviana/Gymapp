@@ -27,14 +27,13 @@
       <tbody>
         <% @clients.each do |client| %>
         <tr>
-          <td><%= client.name %></td>
+          <td><%= image_tag client.avatar.url(:medium), class: 'img-responsive img-thumbnail img-circle img-table' %> <%= client.name %></td>
           <td><%= client.gender %></td>
           <td><%= client.telephone %></td>
           <td><%= client.payment_date %></td>
           <td><%= link_to 'exibir', client, class: "btn btn-default" %></td>
           <td><%= link_to 'editar', edit_client_path(client), class: "btn btn-default" %></td>
           <td><%= link_to 'remover', client, method: :delete, data: { confirm: 'Você tem certeza que deseja remover?' }, class: "btn btn-danger" %></td>
-
         </tr>
         <% end %>
       </tbody>
