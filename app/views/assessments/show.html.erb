@@ -1,174 +1,300 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Client:</strong>
-  <%= @assessment.client_id %>
-</p>
+<!-- Avaliações Corporal -->
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">Composição Corporal</h3>
+    
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Avaliado</h3>
+        <table class ="table table-striped table-hover" >
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Idade</th>
+              <th>Gênero</th>
+            </tr>
+          </thead>
 
-<p>
-  <strong>Employee:</strong>
-  <%= @assessment.employee_id %>
-</p>
+          <tbody>
+            <tr>
+              <td><%= @assessment.client_id %></td>
+              <td>???</td>
+              <td>??????</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <h3>Avaliação</h3>
+        <table class ="table table-striped table-hover" >
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Hora</th>
+              <th>Protocolo</th>
+              <th>Próxima avaliação</th>
+            </tr>
+          </thead>
 
-<p>
-  <strong>Bodyfat:</strong>
-  <%= @assessment.bodyfat %>
-</p>
+          <tbody>
+            <tr>
+              <td>????????</td>
+              <td>????</td>
+              <td>????????</td>
+              <td>????????</td>
+            </tr>
+          </tbody>
+        </table>
 
-<p>
-  <strong>Ideal max:</strong>
-  <%= @assessment.ideal_max %>
-</p>
+        <table class ="table table-striped table-hover" >
+          <tbody>
+            <tr>
+              <th>Avaliador</th>
+              <td><%= @assessment.employee_id %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-<p>
-  <strong>Ideal min:</strong>
-  <%= @assessment.ideal_min %>
-</p>
+      <div class="col-md-6">
+        <h3>Resultados</h3>
+        <table class ="table table-striped table-hover" >
+          <tbody>
+            <tr>
+              <th>Gordura Atual</th>
+              <td><%= @assessment.bodyfat %> %</td>
+            </tr>
 
-<p>
-  <strong>Weight:</strong>
-  <%= @assessment.weight %>
-</p>
+            <tr>
+              <th>Ideal Minimo</th>
+              <td><%= @assessment.ideal_min %></td>
+            </tr>
 
-<p>
-  <strong>Height:</strong>
-  <%= @assessment.height %>
-</p>
+            <tr>
+              <th>Ideal Máximo</th>
+              <td><%= @assessment.ideal_max %></td>
+            </tr>
+          </tbody>
+        </table>
 
-<p>
-  <strong>Ideal min weight:</strong>
-  <%= @assessment.ideal_min_weight %>
-</p>
+        <table class ="table table-striped table-hover" >
+          <tbody>
+            <tr>
+              <th>Peso Atual</th>
+              <td><%= @assessment.weight %></td>
+            </tr>
 
-<p>
-  <strong>Ideal max weight:</strong>
-  <%= @assessment.ideal_max_weight %>
-</p>
+            <tr>
+              <th>Ideal Minimo</th>
+              <td><%= @assessment.ideal_min_weight %></td>
+            </tr>
 
-<p>
-  <strong>Fat weight:</strong>
-  <%= @assessment.fat_weight %>
-</p>
+            <tr>
+              <th>Ideal Máximo</th>
+              <td><%= @assessment.ideal_max_weight %></td>
+            </tr>
+          </tbody>
+        </table>
 
-<p>
-  <strong>Lean body mass:</strong>
-  <%= @assessment.lean_body_mass %>
-</p>
+        <table class ="table table-striped table-hover" >
+          <tbody>
+            <tr>
+              <th>Peso Gordo</th>
+              <td><%= @assessment.fat_weight %></td>
+            </tr>
 
-<p>
-  <strong>Fat body mass:</strong>
-  <%= @assessment.fat_body_mass %>
-</p>
+            <tr>
+              <th>Peso Magro</th>
+              <td><%= @assessment.lean_body_mass %></td>
+            </tr>
+          </tbody>
+        </table>
 
-<p>
-  <strong>Tricipital:</strong>
-  <%= @assessment.tricipital %>
-</p>
+        <table class ="table table-striped table-hover" >
+          <tbody>
+            <tr>
+              <th>Resultado</th>
+              <td><%= @assessment.result %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-<p>
-  <strong>Peitoral:</strong>
-  <%= @assessment.peitoral %>
-</p>
+      <div class="col-md-6">
+        <h3>Composição Corporal (Kg)</h3>
+        <p>
+          Grafico aqui utilizando alguns dados da coluna anterior*<br/>
+          O Rail tem algo, para adicionar os metodos para graficos?????<br/><br/>
+          <img src="https://i.stack.imgur.com/5pdoC.png" class="img-responsive">
+          (Imagem Ilustrativa)<br/><br/>
+          *Campos do gráfico: Atual - P. Mín - P. Máx - Gordo - Magro
+        </p>
+      </div>
 
-<p>
-  <strong>Subescapular:</strong>
-  <%= @assessment.subescapular %>
-</p>
 
-<p>
-  <strong>Axilar media:</strong>
-  <%= @assessment.axilar_media %>
-</p>
 
-<p>
-  <strong>Suprailiaca:</strong>
-  <%= @assessment.suprailiaca %>
-</p>
+      <div class="col-md-6">
+        <h3>Biometria</h3>
+        <table class ="table table-striped table-hover" >
+          <tbody>
+            <tr>
+              <th>Massa Corporal</th>
+              <td>???? Kg</td>
+            </tr>
 
-<p>
-  <strong>Abdominal:</strong>
-  <%= @assessment.abdominal %>
-</p>
+            <tr>
+              <th>Estatura</th>
+              <td><%= @assessment.height %> cm</td>
+            </tr>
+          </tbody>
+        </table>
 
-<p>
-  <strong>Coxa:</strong>
-  <%= @assessment.coxa %>
-</p>
+        <h3>Dobras Cutâneas</h3>
+        <table class ="table table-striped table-hover" >
+          <tbody>
+            <tr>
+              <th>Bicipital</th>
+              <td>???? mm</td>
+            </tr>
 
-<p>
-  <strong>Neck:</strong>
-  <%= @assessment.neck %>
-</p>
+            <tr>
+              <th>Tricipital</th>
+              <td><%= @assessment.tricipital %></td>
+            </tr>
 
-<p>
-  <strong>Shoulder:</strong>
-  <%= @assessment.shoulder %>
-</p>
+            <tr>
+              <th>Peitoral</th>
+              <td><%= @assessment.peitoral %> mm</td>
+            </tr>
 
-<p>
-  <strong>Chest:</strong>
-  <%= @assessment.chest %>
-</p>
+            <tr>
+              <th>Subescapular</th>
+              <td><%= @assessment.subescapular %></td>
+            </tr>
 
-<p>
-  <strong>Waits:</strong>
-  <%= @assessment.waits %>
-</p>
+            <tr>
+              <th>Axilar-Média</th>
+              <td><%= @assessment.axilar_media %> mm</td>
+            </tr>
 
-<p>
-  <strong>Abdomen:</strong>
-  <%= @assessment.abdomen %>
-</p>
+            <tr>
+              <th>Suprailíaca</th>
+              <td><%= @assessment.suprailiaca %> mm</td>
+            </tr>
 
-<p>
-  <strong>Hip:</strong>
-  <%= @assessment.hip %>
-</p>
+            <tr>
+              <th>Abdominal</th>
+              <td><%= @assessment.abdominal %> mm</td>
+            </tr>
 
-<p>
-  <strong>Right arm:</strong>
-  <%= @assessment.right_arm %>
-</p>
+            <tr>
+              <th>Coxa</th>
+              <td><%= @assessment.coxa %> mm</td>
+            </tr>
 
-<p>
-  <strong>Left arm:</strong>
-  <%= @assessment.left_arm %>
-</p>
+            <tr>
+              <th>Panturilha</th>
+              <td>???? mm</td>
+            </tr>
 
-<p>
-  <strong>Right forearm:</strong>
-  <%= @assessment.right_forearm %>
-</p>
+          </tbody>
+        </table>
+      </div>
 
-<p>
-  <strong>Left forearm:</strong>
-  <%= @assessment.left_forearm %>
-</p>
+      <div class="col-md-6">
+        <h3>Perímetros</h3>
+        <table class ="table table-striped table-hover" >
+          <tbody>
+            <tr>
+              <th>Pescoço</th>
+              <td><%= @assessment.neck %> cm</td>
+            </tr>
 
-<p>
-  <strong>Right thigh:</strong>
-  <%= @assessment.right_thigh %>
-</p>
+            <tr>
+              <th>Ombro</th>
+              <td><%= @assessment.shoulder %> cm</td>
+            </tr>
 
-<p>
-  <strong>Left thigh:</strong>
-  <%= @assessment.left_thigh %>
-</p>
+            <tr>
+              <th>Tórax</th>
+              <td><%= @assessment.chest %> cm</td>
+            </tr>
 
-<p>
-  <strong>Right calf:</strong>
-  <%= @assessment.right_calf %>
-</p>
+            <tr>
+              <th>Cintura</th>
+              <td><%= @assessment.waits %> cm</td>
+            </tr>
 
-<p>
-  <strong>Left calf:</strong>
-  <%= @assessment.left_calf %>
-</p>
+            <tr>
+              <th>Abdomem</th>
+              <td><%= @assessment.abdomen %> cm</td>
+            </tr>
 
-<p>
-  <strong>Result:</strong>
-  <%= @assessment.result %>
-</p>
+            <tr>
+              <th>Quadril</th>
+              <td><%= @assessment.hip %> cm</td>
+            </tr>
+          </tbody>
+        </table>
+        <br/>
 
-<%= link_to 'Edit', edit_assessment_path(@assessment) %> |
-<%= link_to 'Back', assessments_path %>
+        <table class ="table table-striped table-hover" >
+          <tbody>
+            <tr>
+              <th colspan="1"></th>
+              <th>Direito</th>
+              <th>Esquerdo</th>
+            </tr>
+            <tr>
+              <th>Braço</th>
+              <td><%= @assessment.right_arm %> cm</td>
+              <td><%= @assessment.left_arm %> cm</td>
+            </tr>
+
+            <tr>
+              <th>Antebraço</th>
+              <td><%= @assessment.right_forearm %> cm</td>
+              <td><%= @assessment.left_forearm %> cm</td>
+            </tr>
+
+            <tr>
+              <th>Coxa</th>
+              <td><%= @assessment.right_thigh %> cm</td>
+              <td><%= @assessment.left_thigh %> cm</td>
+            </tr>
+
+            <tr>
+              <th>Panturrilha</th>
+              <td><%= @assessment.right_calf %> cm</td>
+              <td><%= @assessment.left_calf %> cm</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class ="table table-striped table-hover" >
+          <tbody>
+            <tr>
+              <th>Padrão de pontos</th>
+              <td>????????</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+          <b>Obs.:</b> Campo com observações sobre a ficha <br/>????????????????????????????????????????????????????????????
+        </div>
+        <%= link_to 'Editar', edit_assessment_path(@assessment) %> |
+        <%= link_to 'Voltar', assessments_path %>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
