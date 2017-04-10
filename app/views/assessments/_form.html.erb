@@ -1,0 +1,44 @@
+<%= simple_form_for(@assessment) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :client_id %>
+    <%= f.input :employee_id %>
+    <%= f.input :bodyfat %>
+    <%= f.input :ideal_max %>
+    <%= f.input :ideal_min %>
+    <%= f.input :weight %>
+    <%= f.input :height %>
+    <%= f.input :ideal_min_weight %>
+    <%= f.input :ideal_max_weight %>
+    <%= f.input :fat_weight %>
+    <%= f.input :lean_body_mass %>
+    <%= f.input :fat_body_mass %>
+    <%= f.input :tricipital %>
+    <%= f.input :peitoral %>
+    <%= f.input :subescapular %>
+    <%= f.input :axilar_media %>
+    <%= f.input :suprailiaca %>
+    <%= f.input :abdominal %>
+    <%= f.input :coxa %>
+    <%= f.input :neck %>
+    <%= f.input :shoulder %>
+    <%= f.input :chest %>
+    <%= f.input :waits %>
+    <%= f.input :abdomen %>
+    <%= f.input :hip %>
+    <%= f.input :right_arm %>
+    <%= f.input :left_arm %>
+    <%= f.input :right_forearm %>
+    <%= f.input :left_forearm %>
+    <%= f.input :right_thigh %>
+    <%= f.input :left_thigh %>
+    <%= f.input :right_calf %>
+    <%= f.input :left_calf %>
+    <%= f.input :result %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
