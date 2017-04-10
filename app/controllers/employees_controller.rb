@@ -4,7 +4,13 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.all
+    if params[:employee] && params[:employee].key?(:q)
+      q = params[:employee][:q]
+
+      @employees = Employee.where('name LIKE ?', "%#{q}%")
+    else
+      @employees = Employee.all
+    end
   end
 
   # GET /employees/1

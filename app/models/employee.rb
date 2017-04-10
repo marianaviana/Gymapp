@@ -18,4 +18,14 @@ class Employee < User
   def upcase_name
     self.name = self.name.upcase
   end
+
+  private
+
+  def password_required?
+    false
+  end
+
+  def email_required?
+    false
+  end
 end
