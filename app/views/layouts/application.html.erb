@@ -29,15 +29,25 @@
             <% end %>
 
             <% if user_signed_in? %>
-            <li><%= current_user.name %></li>
+            <li><%= link_to "Equipamentos", equipment_index_path %></li>
+            <li><%= link_to "Clientes", clients_path %></li>
+            <li><%= link_to "Funcionários", employees_path %></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li role="separator" class="divider"></li>
                 <li><%= link_to "Sair", destroy_user_session_path, method: 'delete' %></li>
               </ul>
             </li>
           </ul>
+          <%= form_tag "#", class: "navbar-form pull-right", method: :get, role: "search" do %>
+          <div class="input-group">
+            <%= text_field_tag :q, @query, class: "form-control", placeholder: "Procurar" %>
+            <div class="input-group-btn">
+              <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+          </div>
+          <% end %>
           <% end %>
         </div>
       </div>

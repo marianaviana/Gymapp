@@ -26,7 +26,7 @@
       <tbody>
         <% @clients.each do |client| %>
         <tr>
-          <td><%= client.name %></td>
+          <td><%= image_tag client.avatar.url(:medium), class: 'img-responsive img-thumbnail img-circle img-table' %> <%= client.name %></td>
           <td><%= client.gender %></td>
           <td><%= date_formatter(client.birth_date) %></td>
           <td><%= link_to 'exibir', gymcards_path(client_id: client.id), class: "btn btn-default" %></td>
