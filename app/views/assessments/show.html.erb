@@ -1,10 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <!-- Avaliações Corporal -->
 <div class="panel panel-default">
   <div class="panel-heading main-color-bg">
     <h3 class="panel-title">Composição Corporal</h3>
-    
   </div>
   <div class="panel-body">
     <div class="row">
@@ -289,12 +286,11 @@
         <div class="alert alert-info" role="alert">
           <b>Obs.:</b> Campo com observações sobre a ficha <br/>????????????????????????????????????????????????????????????
         </div>
-        <%= link_to 'Editar', edit_assessment_path(@assessment) %> |
-        <%= link_to 'Voltar', assessments_path %>
+        <%= link_to 'Editar', edit_assessment_path(@assessment, client_id: @client.id) %> |
+        <%= link_to 'Voltar', assessments_path(client_id: @client.id) %>
 
       </div>
 
     </div>
   </div>
 </div>
-

@@ -1,10 +1,16 @@
+# coding: utf-8
 class AssessmentsController < ApplicationController
   before_action :set_assessment, only: [:show, :edit, :update, :destroy]
+
+  def clients
+    @clients = Client.all
+  end
 
   # GET /assessments
   # GET /assessments.json
   def index
-    @assessments = Assessment.all
+    @client      = Client.find(params[:client_id])
+    @assessments = @client.assessments
   end
 
   # GET /assessments/1
@@ -14,7 +20,8 @@ class AssessmentsController < ApplicationController
 
   # GET /assessments/new
   def new
-    @assessment = Assessment.new
+    @client     = Client.find(params[:client_id])
+    @assessment = @client.assessments.build
   end
 
   # GET /assessments/1/edit
@@ -24,16 +31,15 @@ class AssessmentsController < ApplicationController
   # POST /assessments
   # POST /assessments.json
   def create
-    @assessment = Assessment.new(assessment_params)
+    client               = Client.find(assessment_params[:client_id])
+    @assessment          = Assessment.new(assessment_params)
+    @assessment.client   = client
+    @assessment.employee = current_user
 
-    respond_to do |format|
-      if @assessment.save
-        format.html { redirect_to @assessment, notice: 'Assessment was successfully created.' }
-        format.json { render :show, status: :created, location: @assessment }
-      else
-        format.html { render :new }
-        format.json { render json: @assessment.errors, status: :unprocessable_entity }
-      end
+    if @assessment.save
+      redirect_to assessments_path(client_id: client.id), notice: 'Avaliação criada com sucesso.'
+    else
+      render :new
     end
   end
 
@@ -42,11 +48,9 @@ class AssessmentsController < ApplicationController
   def update
     respond_to do |format|
       if @assessment.update(assessment_params)
-        format.html { redirect_to @assessment, notice: 'Assessment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @assessment }
+        format.html { redirect_to assessment_path(@assessment, client_id: @client.id), notice: 'Avaliação atualizada com sucesso.' }
       else
         format.html { render :edit }
-        format.json { render json: @assessment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -64,7 +68,8 @@ class AssessmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_assessment
-      @assessment = Assessment.find(params[:id])
+      @client     = Client.find(params[:client_id])
+      @assessment = @client.assessments.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
