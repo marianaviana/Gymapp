@@ -29,9 +29,6 @@
             <% end %>
 
             <% if user_signed_in? %>
-            <li><%= link_to "Equipamentos", equipment_index_path %></li>
-            <li><%= link_to "Clientes", clients_path %></li>
-            <li><%= link_to "Funcionários", employees_path %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -75,6 +72,9 @@
               <% end %>
               <%= link_to(employees_path, class:'list-group-item') do %>
               <i class="material-icons">supervisor_account</i> Funcionários <span class="badge"><%= Employee.all.size %></span>
+              <% end %>
+              <%= link_to(clients_assessments_path, class:'list-group-item') do %>
+                <i class="material-icons">description</i> Avaliações <span class="badge"><%= Assessment.all.size %></span>
               <% end %>
 
             </div>
