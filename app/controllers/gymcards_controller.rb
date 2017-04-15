@@ -34,7 +34,13 @@ class GymcardsController < ApplicationController
   end
 
   def update
-
+    respond_to do |format|
+      if @gymcard.update(gymcard_params)
+        format.html { redirect_to gymcard_path(@gymcard, client_id: @client.id), notice: 'Ficha atualizada com sucesso.' }
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   def destroy
@@ -43,10 +49,10 @@ class GymcardsController < ApplicationController
 
     if @gymcard.update_attribute(:active, false)
       redirect_to gymcards_path(client_id: @client.id),
-                  notice: 'Ciclo desativado com sucesso'
+      notice: 'Ciclo desativado com sucesso'
     else
       redirect_to gymcards_pathgym(client_id: @client.id),
-                  alert: 'Algum problema ocorreu tentando desativar o ciclo'
+      alert: 'Algum problema ocorreu tentando desativar o ciclo'
     end
   end
 
