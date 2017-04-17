@@ -1,19 +1,26 @@
-      <div class="row">
-      	<div class="col-md-4 col-md-offset-4">
-      		<h1><small>Login de Conta</small></h1>
+<div class="container custom-container">
+  <div class="panel panel-default">
+   <div class="panel-body">
+    <h3 class="text-center">Gymapp</h3>
+    <br>
+    <div class="form" role="form">
+     <div class="form-group custom-elem">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.input :email, label: 'Email', required: false, autofocus: true, placeholder:'email@email.com', class: 'form-control material-input' %>
+    </div>
+    <div class="form-group custom-elem">
+     <%= f.input :password, label: 'Senha', required: false, placeholder:'•••••••••', class: 'form-control material-input' %>
+   </div>
+   <%= f.input :remember_me, label: 'Lembrar-me', as: :boolean if devise_mapping.rememberable? %>
 
-      		<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      		<div class="well">
-      			<%= f.input :email, label: 'Email', required: false, autofocus: true, placeholder:'email@email.com' %>
-      			<%= f.input :password, label: 'Senha', required: false, placeholder:'•••••••••' %>
-      			<%= f.input :remember_me, label: 'Lembrar-me', as: :boolean if devise_mapping.rememberable? %>
-      		</div>
+   <p class="text-center"><small><b><%= render "devise/shared/links" %></b></small></p>
 
-      		<div class="form-actions">
-      			<%= f.button :submit, "Entrar" %>
-      		</div>
-      		<% end %>
+   <div class="form-actions">
+     <%= f.button :submit, "Entrar", class: 'btn btn-custom btn-block' %>
+   </div>
+   <% end %>
+ </div>
 
-      		<%= render "devise/shared/links" %>
-      	</div>
-      </div>
+</div>
+</div>
+</div>
