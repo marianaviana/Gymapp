@@ -1,6 +1,12 @@
 class GymcardsController < ApplicationController
   def clients
-    @clients = Client.all
+    if params[:client] && params[:client].key?(:q)
+      q = params[:client][:q]
+
+      @clients = Client.where('name LIKE ?', "%#{q}%")
+    else
+      @clients = Client.all
+    end
   end
 
   def index
@@ -43,10 +49,10 @@ class GymcardsController < ApplicationController
 
     if @gymcard.update_attribute(:active, false)
       redirect_to gymcards_path(client_id: @client.id),
-                  notice: 'Ciclo desativado com sucesso'
+      notice: 'Ciclo desativado com sucesso'
     else
       redirect_to gymcards_pathgym(client_id: @client.id),
-                  alert: 'Algum problema ocorreu tentando desativar o ciclo'
+      alert: 'Algum problema ocorreu tentando desativar o ciclo'
     end
   end
 
