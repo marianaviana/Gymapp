@@ -9,7 +9,7 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-12">
-        <%= simple_form_for :client, url: clients_path, method: :get do |f| %>
+        <%= simple_form_for :search, url: clients_path, method: :get do |f| %>
 
         <div class="input-group">
           <%= f.input :q, label: false,  placeholder: 'Pesquisar cliente', class: "form-control" %>

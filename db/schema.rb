@@ -1,3 +1,15 @@
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended that you check this file into your version control system.
+
 ActiveRecord::Schema.define(version: 20170421011830) do
 
   create_table "assessments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -37,17 +49,17 @@ ActiveRecord::Schema.define(version: 20170421011830) do
     t.string   "result"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-end
+  end
 
-create_table "cycles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "cycles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "index"
     t.integer  "gymcard_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
-end
+  end
 
-create_table "equipment", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "equipment", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "quantity"
     t.date     "aquisition_date"
@@ -55,19 +67,18 @@ create_table "equipment", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARS
     t.float    "max_weight",      limit: 24
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-end
+  end
 
-create_table "gymcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "gymcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "employee_id"
     t.integer  "client_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.string   "name"
     t.boolean  "active",      default: true
-end
+  end
 
-
-create_table "icqs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "icqs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float    "min",        limit: 24
     t.float    "max",        limit: 24
     t.string   "message"
@@ -76,11 +87,9 @@ create_table "icqs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=ut
     t.string   "gender"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-end
+  end
 
-
-
-create_table "imcs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "imcs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float    "min",        limit: 24
     t.float    "max",        limit: 24
     t.string   "message"
@@ -88,9 +97,9 @@ create_table "imcs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=ut
     t.string   "gender"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-end
+  end
 
-create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                                 default: "", null: false
     t.string   "encrypted_password",                    default: "", null: false
     t.string   "reset_password_token"
@@ -129,9 +138,9 @@ create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=u
     t.string   "type"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-end
+  end
 
-create_table "workouts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "workouts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "serie"
     t.integer  "sequence"
@@ -141,6 +150,6 @@ create_table "workouts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSE
     t.integer  "cycle_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-end
+  end
 
 end
