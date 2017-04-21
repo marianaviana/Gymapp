@@ -7,7 +7,17 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-12">
-        <input class="form-control" type="text" placeholder="Pesquisar cliente">
+        <%= simple_form_for :client, url: clients_path, method: :get do |f| %>
+
+        <div class="input-group">
+          <%= f.input :q, label: false,  placeholder: 'Pesquisar cliente', class: "form-control" %>
+          <div class="input-group-btn">
+            <%= f.submit 'Buscar', class: 'btn btn-default' do %>
+            <span class="glyphicon glyphicon-search"></span>
+            <% end %>
+          </div>
+        </div>
+        <% end  %>
       </div>
     </div>
     <br>
@@ -23,13 +33,13 @@
 
       <tbody>
         <% @clients.each do |client| %>
-          <tr>
-            <td><%= image_tag client.avatar.url(:medium), class: 'img-responsive img-thumbnail img-circle img-table' %> <%= client.name %></td>
-            <td><%= client.gender %></td>
-            <td><%= date_formatter(client.birth_date) %></td>
-            <td><%= link_to 'exibir', assessments_path(client_id: client.id), class: "btn btn-default" %></td>
-            <td><%= link_to 'editar', edit_client_path(client), class: "btn btn-default" %></td>
-          </tr>
+        <tr>
+          <td class="td-name"><%= image_tag client.avatar.url(:medium), class: 'img-responsive img-thumbnail img-circle img-table' %> <%= client.name.capitalize %></td>
+          <td><%= client.gender %></td>
+          <td><%= date_formatter(client.birth_date) %></td>
+          <td><%= link_to 'exibir', assessments_path(client_id: client.id), class: "btn btn-default" %></td>
+          <td><%= link_to 'editar', edit_client_path(client), class: "btn btn-default" %></td>
+        </tr>
         <% end %>
       </tbody>
     </table>

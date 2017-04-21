@@ -3,7 +3,13 @@ class AssessmentsController < ApplicationController
   before_action :set_assessment, only: [:show, :edit, :update, :destroy]
 
   def clients
-    @clients = Client.all
+    if params[:client] && params[:client].key?(:q)
+      q = params[:client][:q]
+
+      @clients = Client.where('name LIKE ?', "%#{q}%")
+    else
+      @clients = Client.all
+    end
   end
 
   # GET /assessments

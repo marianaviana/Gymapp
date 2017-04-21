@@ -1,6 +1,12 @@
 class GymcardsController < ApplicationController
   def clients
-    @clients = Client.all
+    if params[:client] && params[:client].key?(:q)
+      q = params[:client][:q]
+
+      @clients = Client.where('name LIKE ?', "%#{q}%")
+    else
+      @clients = Client.all
+    end
   end
 
   def index
