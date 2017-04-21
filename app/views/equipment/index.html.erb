@@ -25,7 +25,7 @@
       <tbody>
         <% @equipment.each do |equipment| %>
         <tr>
-          <td><%= equipment.name %></td>
+          <td class="td-name"><%= equipment.name.capitalize %></td>
           <td><%= equipment.quantity %></td>
           <td><%= date_formatter(equipment.aquisition_date) %></td>
           <td><%= equipment.weight %></td>

@@ -7,6 +7,7 @@
     <div class="row">
       <div class="col-md-12">
         <%= simple_form_for :employee, url: employees_path, method: :get do |f| %>
+        
         <div class="input-group">
           <%= f.input :q, label: false,  placeholder: 'Pesquisar funcionário', class: "form-control" %>
           <div class="input-group-btn">
@@ -32,7 +33,7 @@
       <tbody>
         <% @employees.each do |employee| %>
         <tr>
-          <td><%= image_tag employee.avatar.url(:medium), class: 'img-responsive img-thumbnail img-circle img-table' %> <%= employee.name %></td>
+          <td class="td-name"><%= image_tag employee.avatar.url(:medium), class: 'img-responsive img-thumbnail img-circle img-table' %> <%= employee.name.capitalize %></td>
           <td><%= employee.position %></td>
           <td><%= employee.telephone %></td>
           <td><%= link_to 'exibir', employee, class: "btn btn-default" %></td>
