@@ -14,24 +14,23 @@
       </thead>
 
       <tbody>
-
         <% @gymcards.each do |gymcard| %>
         <tr>
           <td><%= gymcard.name %></td>
           <td><%= date_formatter(gymcard.created_at)%></td>
           <td><%= link_to 'Ciclos', gymcard_cycles_path(gymcard), class: "btn btn-default" %></td>
           <% if gymcard.active? %>
-            <td><%= link_to 'Desabilitar', gymcard_path(gymcard, client_id: @client.id), method: :delete,
-                data: { confirm: 'Você tem certeza que deseja desabilitar?' },
-                class: "btn btn-danger" %></td>
+          <td><%= link_to 'Desabilitar', gymcard_path(gymcard, client_id: @client.id), method: :delete,
+            data: { confirm: 'Você tem certeza que deseja desabilitar?' },
+            class: "btn btn-danger" %></td>
             <td><%= link_to 'Exibir', gymcard_path(gymcard, client_id: @client.id), class: "btn btn-default" %></td>
+            <% end %>
+          </tr>
           <% end %>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
 
+    </div>
   </div>
-</div>
 
-<%= link_to 'Nova Ficha', new_gymcard_path(client_id: @client.id), class: 'btn btn-success col-md-12' %>
+  <%= link_to 'Nova Ficha', new_gymcard_path(client_id: @client.id), class: 'btn btn-success col-md-12' %>

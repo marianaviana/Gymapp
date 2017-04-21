@@ -6,7 +6,16 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-12">
-        <input class="form-control" type="text" placeholder="Pesquisar equipamento">
+        <%= simple_form_for :search, url: '/equipment', method: :get do |f| %>
+        <div class="input-group">
+          <%= f.input :q, label: false,  placeholder: 'Pesquisar Equipamento', class: "form-control" %>
+          <div class="input-group-btn">
+            <%= f.submit 'Buscar', class: 'btn btn-default' do %>
+            <span class="glyphicon glyphicon-search"></span>
+            <% end %>
+          </div>
+        </div>
+        <% end  %>
       </div>
     </div>
     <br>
@@ -25,7 +34,7 @@
       <tbody>
         <% @equipment.each do |equipment| %>
         <tr>
-          <td><%= equipment.name %></td>
+          <td class="td-name"><%= equipment.name.capitalize %></td>
           <td><%= equipment.quantity %></td>
           <td><%= date_formatter(equipment.aquisition_date) %></td>
           <td><%= equipment.weight %></td>
