@@ -4,7 +4,13 @@ class EquipmentController < ApplicationController
   # GET /equipment
   # GET /equipment.json
   def index
-    @equipment = Equipment.all
+    if params[:search] && params[:search].key?(:q)
+      q = params[:search][:q]
+
+      @equipment = Equipment.where('name LIKE ?', "%#{q}%")
+    else
+      @equipment = Equipment.all
+    end
   end
 
   # GET /equipment/1

@@ -1,0 +1,2 @@
+class Icq < ApplicationRecord
+end
