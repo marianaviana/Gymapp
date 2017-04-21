@@ -40,7 +40,13 @@ class GymcardsController < ApplicationController
   end
 
   def update
-
+    respond_to do |format|
+      if @gymcard.update(gymcard_params)
+        format.html { redirect_to gymcard_path(@gymcard, client_id: @client.id), notice: 'Ficha atualizada com sucesso.' }
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   def destroy
