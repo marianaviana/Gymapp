@@ -5,7 +5,6 @@ class AssessmentsController < ApplicationController
   def clients
     if params[:search] && params[:search].key?(:q)
       q = params[:search][:q]
-
       @clients = Client.where('name LIKE ?', "%#{q}%")
     else
       @clients = Client.all

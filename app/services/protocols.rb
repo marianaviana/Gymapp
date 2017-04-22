@@ -1,41 +1,53 @@
 class Protocol 
-	
-	def protocol_7
-	#Protocolo de Pollock: Sete Dobras Cutâneas
-	#Tríceps + Subescapular + Suprailíaca + Abdominal + Axilar Medial + Peito + Coxa
-	body_density_woman =  (1.097-(0.0004697*(:tricipital+:subescapular+:suprailiaca+
+  
+  def calc
+    protocol = (4.95/density) - 4.5 * 100
+  end
 
-		:abdominal+:axilar_media+:peitoral+:coxa)))+(0.00000056*((:tricipital+:suprailiaca+:coxa)**2))-
-	(0.00012828*:age)
+  if gender == 'Masculino'
+    def body_men
+      if protocol3
+	density = body_density_men = (1.10938 - (0.0008267 * three)) + (0.0000016 * (three**2)) - (0.0002574 * age)
+      else
+	density = body_density_men = (1.112 - (0.00043499 * seven)) + (0.00000055 * (three**2)) - (0.00012882 * age)
+      end
+    end
+  end
 
-	body_density_men = (1.112-(0.00043499*(:tricipital+:subescapular+:suprailiaca+
-		:abdominal+:axilar_media+:peitoral+:coxa)))+(0.00000055*((:tricipital+:suprailiaca+:coxa)**2))-
-	(0.00012882*:age)
+  if gender == 'Feminino'
+    def body_woman
+      if protocol3
+	density = body_density_woman = (1.0994921 - (0.0009929 * three)) + (0.0000023 * (three**2)) - (0.0001393 * age)
+      else
+	density = body_density_woman = (1.097 - (0.0004697 * seven)) + (0.00000056 * (three**2)) - (0.00012828 * age)
+      end
+    end
+  end
 
-	protocol7 = (4.95/Densidade Corporal)- 4.5*100
-end
 
+  def sum_3
+    three = tricipital + suprailiaca + coxa
+  end
 
-def protocol_3
-		#Protocolo de Pollock: Três Dobras Cutâneas
-		#Tríceps + Suprailíaca + Coxa)
-		body_density_woman = (1.0994921-(0.0009929*(:tricipital+:suprailiaca+:coxa)))+
-		(0.0000023*((:tricipital+:suprailiaca+:coxa)**2))-(0.0001393*:age)
+  def sum_7
+    seven = tricipital + subescapular + suprailiaca + abdominal + axilar_media + peitoral + coxa
+  end
 
-		body_density_men =	(1.10938-(0.0008267*(:tricipital+:suprailiaca+:coxa)))+
-		(0.0000016*((:tricipital+:suprailiaca+:coxa)**2))-(0.0002574*:age)
+  def medidas
+    tricipital 		= assessment.tricipital
+    subescapular 	= assessment.subescapular
+    suprailiaca 	= assessment.suprailiaca
+    abdominal 		= assessment.abdominal
+    axilar_media 	= assessment.axilar_media
+    peitoral 		= assessment.peitoral
+    coxa 			= assessment.coxa
+  end
 
-		protocol3 = (4.95/Densidade Corporal)-4.5)*100
-end
+  def client_age
+    age = Time.now.year - client.birth_date.year
+  end
 
-def icq_woman
-		#medidas em centímetros
-		@icq = :waist/:hip
-	end
-
-	def icq_men
-		#medidas em centímetros
-		@icq = :waist/:hip
-	end
-
+  def gender
+    client.gender
+  end
 end

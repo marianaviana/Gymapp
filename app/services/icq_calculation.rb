@@ -12,7 +12,7 @@ class IcqCalculation
   end
 
   def icq
-    (waist / hip.round(2)
+    (waist / hip).round(2)
   end
 
   private
