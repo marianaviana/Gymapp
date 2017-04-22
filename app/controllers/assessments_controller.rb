@@ -3,7 +3,13 @@ class AssessmentsController < ApplicationController
   before_action :set_assessment, only: [:show, :edit, :update, :destroy]
 
   def clients
-    @clients = Client.all
+    if params[:search] && params[:search].key?(:q)
+      q = params[:search][:q]
+
+      @clients = Client.where('name LIKE ?', "%#{q}%")
+    else
+      @clients = Client.all
+    end
   end
 
   # GET /assessments
@@ -16,6 +22,7 @@ class AssessmentsController < ApplicationController
   # GET /assessments/1
   # GET /assessments/1.json
   def show
+    @imc = ImcCalculation.new(@assessment)
   end
 
   # GET /assessments/new
@@ -60,7 +67,7 @@ class AssessmentsController < ApplicationController
   def destroy
     @assessment.destroy
     respond_to do |format|
-      format.html { redirect_to assessments_url, notice: 'Assessment was successfully destroyed.' }
+      format.html { redirect_to assessments_url, notice: 'Avaliação foi excluida com sucesso' }
       format.json { head :no_content }
     end
   end
@@ -76,4 +83,4 @@ class AssessmentsController < ApplicationController
     def assessment_params
       params.require(:assessment).permit(:client_id, :employee_id, :bodyfat, :ideal_max, :ideal_min, :weight, :height, :ideal_min_weight, :ideal_max_weight, :fat_weight, :lean_body_mass, :fat_body_mass, :tricipital, :peitoral, :subescapular, :axilar_media, :suprailiaca, :abdominal, :coxa, :neck, :shoulder, :chest, :waits, :abdomen, :hip, :right_arm, :left_arm, :right_forearm, :left_forearm, :right_thigh, :left_thigh, :right_calf, :left_calf, :result)
     end
-end
+  end

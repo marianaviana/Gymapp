@@ -5,6 +5,8 @@
     <div class="form" role="form">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
+
+        <%= f.hidden_field :type, value: Employee %>
       <div class="form-group custom-elem">
         <%= f.input :name, required: true, label: 'Nome:' %>
       </div>
