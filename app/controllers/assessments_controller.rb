@@ -3,8 +3,13 @@ class AssessmentsController < ApplicationController
   before_action :set_assessment, only: [:show, :edit, :update, :destroy]
 
   def clients
+<<<<<<< HEAD
     if params[:client] && params[:client].key?(:q)
       q = params[:client][:q]
+=======
+    if params[:search] && params[:search].key?(:q)
+      q = params[:search][:q]
+>>>>>>> f4eced2510ff99d33df3be6ff6a1831119b18c01
 
       @clients = Client.where('name LIKE ?', "%#{q}%")
     else
@@ -22,6 +27,7 @@ class AssessmentsController < ApplicationController
   # GET /assessments/1
   # GET /assessments/1.json
   def show
+    @imc = ImcCalculation.new(@assessment)
   end
 
   # GET /assessments/new
@@ -66,7 +72,7 @@ class AssessmentsController < ApplicationController
   def destroy
     @assessment.destroy
     respond_to do |format|
-      format.html { redirect_to assessments_url, notice: 'Assessment was successfully destroyed.' }
+      format.html { redirect_to assessments_url, notice: 'Avaliação foi excluida com sucesso' }
       format.json { head :no_content }
     end
   end

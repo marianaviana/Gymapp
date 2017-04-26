@@ -5,6 +5,7 @@
     <div class="form" role="form">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
+<<<<<<< HEAD
       <div class="form-group custom-elem">
         <%= f.input :name, required: true, label: 'Nome:' %>
       </div>
@@ -45,3 +46,47 @@
   </div>
 </div>
 </div>
+=======
+
+        <%= f.hidden_field :type, value: Employee %>
+      <div class="form-group custom-elem">
+        <%= f.input :name, required: true, label: 'Nome:' %>
+      </div>
+      <div class="form-group custom-elem">
+        <%= f.input :email, required: true, autofocus: true %>
+      </div>
+      <div class="form-group custom-elem">
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label: 'Senha' %>
+      </div>
+      <div class="form-group custom-elem">
+        <%= f.input :password_confirmation, required: true, label: 'Confirmar Senha' %>
+      </div>
+      <div class="form-group custom-elem">
+        <%= f.input :position, required: true, label:'Função:' %>
+      </div>
+      <div class="form-group custom-elem">
+        <%= f.input :birth_date, required: true, html5:true, label: 'Data de Nascimento:' %>
+      </div>
+      <div class="form-group custom-elem">
+        <%= f.input :rg, required: true, label: 'RG:' %>
+      </div>
+      <div class="form-group custom-elem">
+        <%= f.input :cpf, required: true, label: 'CPF:' %>
+        <%= f.input :telephone, required: true, label: 'Telefone:' %>
+      </div>
+      <div class="form-group custom-elem">
+        <%= f.input :admission_date, required: true, html5:true, label:'Data de Admissão:' %>
+      </div>
+
+      <p class="text-center"><small><b><%= render "devise/shared/links" %></b></small></p>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Cadastrar", class: 'btn btn-custom btn-block' %>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+</div>
+>>>>>>> f4eced2510ff99d33df3be6ff6a1831119b18c01

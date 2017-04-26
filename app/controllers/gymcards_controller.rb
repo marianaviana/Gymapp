@@ -1,7 +1,12 @@
 class GymcardsController < ApplicationController
   def clients
+<<<<<<< HEAD
     if params[:client] && params[:client].key?(:q)
       q = params[:client][:q]
+=======
+    if params[:search] && params[:search].key?(:q)
+      q = params[:search][:q]
+>>>>>>> f4eced2510ff99d33df3be6ff6a1831119b18c01
 
       @clients = Client.where('name LIKE ?', "%#{q}%")
     else
@@ -40,7 +45,13 @@ class GymcardsController < ApplicationController
   end
 
   def update
-
+    respond_to do |format|
+      if @gymcard.update(gymcard_params)
+        format.html { redirect_to gymcard_path(@gymcard, client_id: @client.id), notice: 'Ficha atualizada com sucesso.' }
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   def destroy
