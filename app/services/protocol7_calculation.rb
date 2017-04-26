@@ -1,7 +1,7 @@
 class Protocol7Calculation
 	attr_accessor :assessment, :client
 
-	METHODS =  [ :tricipital, :subescaputar, :suprailiaca, :abdominal,
+	METHODS =  [ :tricipital, :subescapular, :suprailiaca, :abdominal,
 		:axilar_media, :peitoral, :coxa ]
 
 		def initialize(assessment)
