@@ -4,14 +4,8 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-<<<<<<< HEAD
-    if params[:client] && params[:client].key?(:q)
-      q = params[:client][:q]
-=======
     if params[:search] && params[:search].key?(:q)
       q = params[:search][:q]
->>>>>>> f4eced2510ff99d33df3be6ff6a1831119b18c01
-
       @clients = Client.where('name LIKE ?', "%#{q}%")
     else
       @clients = Client.all
