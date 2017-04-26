@@ -22,6 +22,9 @@ class AssessmentsController < ApplicationController
   # GET /assessments/1.json
   def show
     @imc = ImcCalculation.new(@assessment)
+    @icq = IcqCalculation.new(@assessment)
+    @protocol7 = Protocol7_calculation.new(@assessment)
+    @protocol3 = Protocol3_calculaion.new(@assessment)
   end
 
   # GET /assessments/new

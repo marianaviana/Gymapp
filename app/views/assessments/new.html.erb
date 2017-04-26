@@ -1,53 +1,19 @@
 <!-- Visão geral do site -->
 <div class="panel panel-default">
   <div class="panel-heading main-color-bg">
-    <h3 class="panel-title">Nova Ficha</h3>
-  </div>
-  <div class="panel-body">
-    <%= simple_form_for(@assessment) do |f| %>
-      <div class="form-inputs">
-        <%= f.hidden_field :client_id, value: @client.id %>
-        <%= f.input :bodyfat %>
-        <%= f.input :ideal_max %>
-        <%= f.input :ideal_min %>
-        <%= f.input :weight %>
-        <%= f.input :height %>
-        <%= f.input :ideal_min_weight %>
-        <%= f.input :ideal_max_weight %>
-        <%= f.input :fat_weight %>
-        <%= f.input :lean_body_mass %>
-        <%= f.input :fat_body_mass %>
-        <%= f.input :tricipital %>
-        <%= f.input :peitoral %>
-        <%= f.input :subescapular %>
-        <%= f.input :axilar_media %>
-        <%= f.input :suprailiaca %>
-        <%= f.input :abdominal %>
-        <%= f.input :coxa %>
-        <%= f.input :neck %>
-        <%= f.input :shoulder %>
-        <%= f.input :chest %>
-        <%= f.input :waits %>
-        <%= f.input :abdomen %>
-        <%= f.input :hip %>
-        <%= f.input :right_arm %>
-        <%= f.input :left_arm %>
-        <%= f.input :right_forearm %>
-        <%= f.input :left_forearm %>
-        <%= f.input :right_thigh %>
-        <%= f.input :left_thigh %>
-        <%= f.input :right_calf %>
-        <%= f.input :left_calf %>
-        <%= f.input :result %>
-      </div>
-
-      <div class="form-actions">
-        <%= f.button :submit %>
-      </div>
-    <% end %>
-
-    <%= link_to 'Voltar', assessments_path(client_id: @client.id) %>
-  </div>
+    <h3 class="panel-title">Nova Avaliação</h3>
 </div>
+<div class="panel-body">
+    <%= simple_form_for(@assessment) do |f| %>
+    <div class="form-inputs">
+        <%= f.hidden_field :client_id, value: @client.id %>
+        
+    </div>
 
-<%= link_to 'Back', assessments_path %>
+    <div class="form-actions">
+        <%= f.button :submit, 'Finalizar Avaliação', class: 'btn btn-success' %>
+    </div>
+    <% end %>
+    <%= link_to 'Voltar', assessments_path(client_id: @client.id) %>
+</div>
+</div>

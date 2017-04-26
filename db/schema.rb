@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421011830) do
+ActiveRecord::Schema.define(version: 20170421212828) do
 
   create_table "assessments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "client_id"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20170421011830) do
     t.float    "neck",             limit: 24
     t.float    "shoulder",         limit: 24
     t.float    "chest",            limit: 24
-    t.float    "waits",            limit: 24
+    t.float    "waist",            limit: 24
     t.float    "abdomen",          limit: 24
     t.float    "hip",              limit: 24
     t.string   "right_arm"
