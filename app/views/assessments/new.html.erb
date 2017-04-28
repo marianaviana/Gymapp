@@ -4,22 +4,27 @@
     <h3 class="panel-title">Nova Avaliação</h3>
 </div>
 <div class="panel-body">
-    <div class="btn-group group-bottom" role="group" aria-label="...">
-        <button type="button" class="btn btn-default">Indice de Massa Corporal</button>
-        <button type="button" class="btn btn-default">Indice Cintura Quadril</button>
-        <button type="button" class="btn btn-default">Protoco Pollock 7 Dobras</button>
-        <button type="button" class="btn btn-default">Protoco Pollock 3 Dobras</button>
-    </div>
-    <%= simple_form_for(@assessment) do |f| %>
-    <div class="form-inputs">
-        <%= f.hidden_field :client_id, value: @client.id %>
-
+    <div class="row">
+        <div class="btn-group group-bottom col-xs-11 col-center-block" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">Indice de Massa Corporal</button>
+            <button type="button" class="btn btn-default">Indice Cintura Quadril</button>
+            <button type="button" class="btn btn-default">Protoco Pollock 7 Dobras</button>
+            <button type="button" class="btn btn-default">Protoco Pollock 3 Dobras</button>
+        </div>
     </div>
 
-    <div class="form-actions">
-        <%= f.button :submit, 'Finalizar Avaliação', class: 'btn btn-success' %>
+    <div class="col-md-12">
+        <%= simple_form_for(@assessment) do |f| %>
+        <div class="form-inputs">
+            <%= f.hidden_field :client_id, value: @client.id %>
+
+        </div>
+
+        <div class="form-actions">
+            <%= f.button :submit, 'Finalizar Avaliação', class: 'btn btn-success' %>
+        </div>
+        <% end %>
+        <%= link_to 'Voltar', assessments_path(client_id: @client.id) %>
     </div>
-    <% end %>
-    <%= link_to 'Voltar', assessments_path(client_id: @client.id) %>
 </div>
 </div>
