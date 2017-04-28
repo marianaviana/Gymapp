@@ -19,14 +19,14 @@
         </thead>
         <tbody>
           <% @cycle.workouts.each do |workout| %>
-            <tr>
-              <td><%= workout.name %></td>
-              <td><%= workout.equipment.name %></td>
-              <td><%= workout.serie %></td>
-              <td><%= workout.sequence %></td>
-              <td><%= workout.load %></td>
-              <td><%= workout.obs %></td>
-            </tr>
+          <tr>
+            <td><%= workout.name %></td>
+            <td><%= workout.equipment.name %></td>
+            <td><%= workout.serie %></td>
+            <td><%= workout.sequence %></td>
+            <td><%= workout.load %></td>
+            <td><%= workout.obs %></td>
+          </tr>
           <% end %>
         </tbody>
       </table>

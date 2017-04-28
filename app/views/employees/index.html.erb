@@ -32,7 +32,7 @@
 
       <tbody>
         <% @employees.each do |employee| %>
-        <tr>
+        <tr>  
           <td class="td-name"><%= image_tag employee.avatar.url(:medium), class: 'img-responsive img-thumbnail img-circle img-table' %> <%= employee.name.capitalize %></td>
           <td><%= employee.position %></td>
           <td><%= employee.telephone %></td>

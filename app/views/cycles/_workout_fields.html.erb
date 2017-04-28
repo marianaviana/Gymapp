@@ -4,14 +4,28 @@
       <h3 class="panel-title">Novo Exercício</h3>
     </div>
     <div class="form-inputs" style="padding: 10px;">
-      <%= f.input :name %>
-      <%= f.association :equipment, label: 'Equipamento' %>
-      <%= f.input :serie %>
-      <%= f.input :sequence %>
-      <%= f.input :load %>
-      <%= f.input :obs %>
+      <div class="row">
+        <div class="col-md-3">
+          <%= f.input :name, label: 'Nome' %>
+        </div>
+        <div class="col-md-3">
+          <%= f.association :equipment, label: 'Equipamento' %>
+        </div>
+        <div class="col-md-2">
+          <%= f.input :serie, label: 'Série' %>
+        </div>
+        <div class="col-md-2">
+          <%= f.input :sequence, label: 'Sequencia' %>
+        </div>
+        <div class="col-md-2">
+          <%= f.input :load, label: 'Peso' %>
+        </div>
+        <div class="col-md-12">
+          <%= f.input :obs, label: 'Obs' %>
 
-      <%= link_to_remove_association 'Remover Exercício', f, class: 'btn btn-success' %>
+          <%= link_to_remove_association 'Remover Exercício', f, class: 'btn btn-success' %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

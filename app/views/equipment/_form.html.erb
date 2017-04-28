@@ -1,26 +1,30 @@
-<%= simple_form_for(equipment) do |f| %>
-<div class="field">
 
-	<%= f.input :name, label:'Nome' %>
-</div>
+<div class="row">
 
-<div class="field">
-	<%= f.input :quantity, label:'Quantidade' %>
-</div>
+	<%= simple_form_for(equipment) do |f| %>
+	<div class="field col-md-12">
 
-<div class="field">
-	<%= f.input :aquisition_date, as: :date, label:'Data de Aquisição', html5:true %>
-</div>
+		<%= f.input :name, label:'Nome' %>
+	</div>
 
-<div class="field">
-	<%= f.input :weight, label:'Peso do equipamento' %>
-</div>
+	<div class="field col-md-3">
+		<%= f.input :quantity, label:'Quantidade' %>
+	</div>
 
-<div class="field">
-	<%= f.input :max_weight, label:'Peso máximo suportado' %>
-</div>
+	<div class="field col-md-3">
+		<%= f.input :aquisition_date, as: :date, label:'Data de Aquisição', html5:true %>
+	</div>
 
-<div class="actions">
-	<%= f.button :submit, 'Salvar Equipamento', class: 'btn btn-success' %>
+	<div class="field col-md-3">
+		<%= f.input :weight, label:'Peso do equipamento' %>
+	</div>
+
+	<div class="field col-md-3">
+		<%= f.input :max_weight, label:'Peso máximo suportado' %>
+	</div>
+
+	<div class="actions col-md-12">
+		<%= f.button :submit, 'Salvar Equipamento', class: 'btn btn-success' %>
+	</div>
+	<% end %>
 </div>
-<% end %>

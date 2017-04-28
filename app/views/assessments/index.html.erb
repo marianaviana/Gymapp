@@ -10,6 +10,7 @@
       <thead>
         <tr>
           <th>Cliente</th>
+          <th>Tipo de avaliação</th>
           <th>Data da avaliação</th>
           <th>Próxima avaliação</th>
           <th>Resultado</th>
@@ -19,15 +20,16 @@
 
       <tbody>
         <% @assessments.each do |assessment| %>
-          <tr>
-            <td><%= assessment.client.name %></td>
-            <td><%= date_formatter(assessment.created_at) %></td>
-            <td>????????</td>
-            <td><%= assessment.result %></td>
-            <td><%= link_to 'exibir', assessment_path(assessment, client_id: @client.id), class: "btn btn-default" %></td>
-            <td><%= link_to 'editar', edit_assessment_path(assessment, client_id: @client.id), class: "btn btn-default" %></td>
-            <td><%= link_to 'remover', assessment_path(assessment, client_id: @client.id), method: :delete, data: { confirm: 'Você tem certeza que deseja remover?' }, class: "btn btn-danger" %></td>
-          </tr>
+        <tr>
+          <td><%= assessment.client.name %></td>
+          <td>????????</td>
+          <td><%= date_formatter(assessment.created_at) %></td>
+          <td>????????</td>
+          <td><%= assessment.result %></td>
+          <td><%= link_to 'exibir', assessment_path(assessment, client_id: @client.id), class: "btn btn-default" %></td>
+          <td><%= link_to 'editar', edit_assessment_path(assessment, client_id: @client.id), class: "btn btn-default" %></td>
+          <td><%= link_to 'remover', assessment_path(assessment, client_id: @client.id), method: :delete, data: { confirm: 'Você tem certeza que deseja remover?' }, class: "btn btn-danger" %></td>
+        </tr>
         <% end %>
       </tbody>
     </table>
