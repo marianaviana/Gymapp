@@ -1,6 +1,6 @@
 # coding: utf-8
 class AssessmentsController < ApplicationController
-  before_action :set_assessment, only: [:show, :edit, :update, :destroy]
+  before_action :set_assessment, only: [:show, :edit, :destroy]
 
   def clients
     if params[:search] && params[:search].key?(:q)
@@ -21,10 +21,10 @@ class AssessmentsController < ApplicationController
   # GET /assessments/1
   # GET /assessments/1.json
   def show
-    @imc = ImcCalculation.new(@assessment)
-    @icq = IcqCalculation.new(@assessment)
-    @protocol7 = Protocol7_calculation.new(@assessment)
-    @protocol3 = Protocol3_calculaion.new(@assessment)
+    @imc       = ImcCalculation.new(@assessment)
+    @icq       = IcqCalculation.new(@assessment)
+    @protocol7 = Protocol7Calculation.new(@assessment)
+    @protocol3 = Protocol3Calculation.new(@assessment)
   end
 
   # GET /assessments/new
@@ -55,6 +55,8 @@ class AssessmentsController < ApplicationController
   # PATCH/PUT /assessments/1
   # PATCH/PUT /assessments/1.json
   def update
+    @client     = Client.find(assessment_params[:client_id])
+    @assessment = @client.assessments.find(params[:id])
     respond_to do |format|
       if @assessment.update(assessment_params)
         format.html { redirect_to assessment_path(@assessment, client_id: @client.id), notice: 'Avaliação atualizada com sucesso.' }
@@ -75,14 +77,14 @@ class AssessmentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_assessment
-      @client     = Client.find(params[:client_id])
-      @assessment = @client.assessments.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def assessment_params
-      params.require(:assessment).permit(:client_id, :employee_id, :bodyfat, :ideal_max, :ideal_min, :weight, :height, :ideal_min_weight, :ideal_max_weight, :fat_weight, :lean_body_mass, :fat_body_mass, :tricipital, :peitoral, :subescapular, :axilar_media, :suprailiaca, :abdominal, :coxa, :neck, :shoulder, :chest, :waits, :abdomen, :hip, :right_arm, :left_arm, :right_forearm, :left_forearm, :right_thigh, :left_thigh, :right_calf, :left_calf, :result)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_assessment
+    @client     = Client.find(params[:client_id])
+    @assessment = @client.assessments.find(params[:id])
   end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def assessment_params
+    params.require(:assessment).permit(:client_id, :employee_id, :bodyfat, :ideal_max, :ideal_min, :weight, :height, :ideal_min_weight, :ideal_max_weight, :fat_weight, :lean_body_mass, :fat_body_mass, :tricipital, :peitoral, :subescapular, :axilar_media, :suprailiaca, :abdominal, :coxa, :neck, :shoulder, :chest, :waist, :abdomen, :hip, :right_arm, :left_arm, :right_forearm, :left_forearm, :right_thigh, :left_thigh, :right_calf, :left_calf, :result)
+  end
+end

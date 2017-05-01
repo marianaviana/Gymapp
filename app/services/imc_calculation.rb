@@ -43,7 +43,7 @@ class ImcCalculation
   end
 
   def height
-    assessment.height
+    assessment.height.to_f / 100.to_f
   end
 end
 
