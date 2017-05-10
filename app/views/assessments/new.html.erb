@@ -2,28 +2,16 @@
 <div class="panel panel-default">
   <div class="panel-heading main-color-bg">
     <h3 class="panel-title">Nova Avaliação</h3>
-</div>
-<div class="panel-body">
+  </div>
+  <div class="panel-body">
     <div class="row">
-        <div class="btn-group group-bottom col-xs-11 col-center-block" role="group" aria-label="...">
-            <%= link_to "Indice Cintura Quadril", new_icq_path(client_id: @client.id), class: 'btn btn-default' %>
-            <%= link_to "Protocolo Pollock 3 dobras", new_pollock3_path(client_id: @client.id), class: 'btn btn-default' %>
-            <%= link_to "Protocolo Pollock 7 dobras", new_pollock7_path(client_id: @client.id), class: 'btn btn-default' %>
-        </div>
+      <div class="btn-group group-bottom col-xs-11 col-center-block" role="group" aria-label="...">
+        <%= link_to "Indice Cintura Quadril", new_icq_path(client_id: @client.id), class: 'btn btn-default' %>
+        <%= link_to "Protocolo Pollock 3 dobras", new_pollock3_path(client_id: @client.id), class: 'btn btn-default' %>
+        <%= link_to "Protocolo Pollock 7 dobras", new_pollock7_path(client_id: @client.id), class: 'btn btn-default' %>
+      </div>
     </div>
 
-    <div class="col-md-12">
-        <%= simple_form_for(@assessment) do |f| %>
-        <div class="form-inputs">
-            <%= f.hidden_field :client_id, value: @client.id %>
-
-        </div>
-
-        <div class="form-actions">
-            <%= f.button :submit, 'Finalizar Avaliação', class: 'btn btn-success' %>
-        </div>
-        <% end %>
-        <%= link_to 'Voltar', assessments_path(client_id: @client.id) %>
-    </div>
-</div>
+    <%= link_to 'Voltar', assessments_path(client_id: @client.id) %>
+  </div>
 </div>
