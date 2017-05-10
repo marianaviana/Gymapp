@@ -170,3 +170,18 @@ Employee.create(name: 'Luiza', position: 'Personal', birth_date: Date.new(1993, 
 
 Admin.create(name: 'Luiza', password: '123456', password_confirmation: '123456',
              email: 'admin@email.com')
+
+
+
+Client.all.each do |client|
+  IcqAssessment.create(client_id: client.id, weight: "85", height: "181", waist: "65", hip: "65", next_assessment_date: "2017-05-20", employee: Employee.last )
+
+  if client.id >= 8
+    IcqAssessment.create(client_id: client.id, weight: "85", height: "181", waist: "65", hip: "65", next_assessment_date: "2017-07-20" , employee: Employee.last)
+  end
+
+  if client.id <=5
+    IcqAssessment.create(client_id: client.id, weight: "85", height: "181", waist: "65", hip: "65", next_assessment_date: "2017-01-20", employee: Employee.last )
+  end
+end
+
