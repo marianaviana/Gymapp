@@ -37,8 +37,10 @@
           <td><%= employee.position %></td>
           <td><%= employee.telephone %></td>
           <td><%= link_to 'exibir', employee, class: "btn btn-default" %></td>
-          <td><%= link_to 'editar', edit_employee_path(employee), class: "btn btn-default" %></td>
-          <td><%= link_to 'remover', employee, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          <% if policy(employee).update? %>
+            <td><%= link_to 'editar', edit_employee_path(employee), class: "btn btn-default" %></td>
+            <td><%= link_to 'remover', employee, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          <% end %>
         </tr>
         <% end %>
       </tbody>
@@ -47,5 +49,6 @@
   </div>
 </div>
 
-
+<% if policy(@employees).create? %>
 <%= link_to 'Novo Funcionário', new_employee_path, class: 'btn btn-success col-md-12' %>
+<% end %>

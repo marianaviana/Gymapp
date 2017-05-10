@@ -1,0 +1,25 @@
+<!-- Visão geral do site -->
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">Nova avaliação ICQ</h3>
+  </div>
+  <div class="panel-body">
+    <%= simple_form_for(@assessment, url: icq_index_path) do |f| %>
+      <div class="form-inputs">
+        <%= f.hidden_field :client_id, value: @client.id %>
+        <%= f.input :weight %>
+        <%= f.input :height %>
+        <%= f.input :waist %>
+        <%= f.input :hip %>
+        <%= f.input :next_assessment_date, html5: true, label: 'Data próxima avaliação:' %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit 'Salvar', class:'btn btn-success pull-right' %>
+      </div>
+    <% end %>
+
+    <br />
+    <%= link_to 'Voltar', assessments_path(client_id: @client.id) %>
+  </div>
+</div>

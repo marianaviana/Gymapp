@@ -1,7 +1,7 @@
 <!-- Avaliações Corporal -->
 <div class="panel panel-default">
   <div class="panel-heading main-color-bg">
-    <h3 class="panel-title">Composição Corporal</h3>
+    <h3 class="panel-title">Composição Corporal - Pollock 3 Dobras</h3>
   </div>
   <div class="panel-body">
     <div class="row">
@@ -18,9 +18,9 @@
 
           <tbody>
             <tr>
-              <td><%= @assessment.client_id %></td>
-              <td>???</td>
-              <td>??????</td>
+              <td><%= @assessment.client.name %></td>
+              <td><%= @assessment.client.age %></td>
+              <td><%= @assessment.client.gender %></td>
             </tr>
           </tbody>
         </table>
@@ -39,10 +39,10 @@
 
           <tbody>
             <tr>
-              <td></td>
-              <td>????</td>
-              <td>????????</td>
-              <td>????????</td>
+              <td><%= date_formatter(@assessment.created_at)%></td>
+              <td><%= time_formatter(@assessment.created_at)%></td>
+              <td><%= @assessment.type%></td>
+              <td><%= date_formatter(@assessment.next_assessment_date) %></td>
             </tr>
           </tbody>
         </table>
@@ -51,7 +51,7 @@
           <tbody>
             <tr>
               <th>Avaliador</th>
-              <td><%= @assessment.employee_id %></td>
+              <td><%= @assessment.employee.name %></td>
             </tr>
           </tbody>
         </table>
@@ -63,17 +63,17 @@
           <tbody>
             <tr>
               <th>Gordura Atual</th>
-              <td><%= @assessment.bodyfat %> %</td>
+              <td><%= @imc.imc %> %</td>
             </tr>
 
             <tr>
               <th>Ideal Minimo</th>
-              <td><%= @assessment.ideal_min %></td>
+              <td><%= @imc.min %> %</td>
             </tr>
 
             <tr>
               <th>Ideal Máximo</th>
-              <td><%= @assessment.ideal_max %></td>
+              <td><%= @imc.max %> %</td>
             </tr>
           </tbody>
         </table>
@@ -87,12 +87,12 @@
 
             <tr>
               <th>Ideal Minimo</th>
-              <td><%= @assessment.ideal_min_weight %></td>
+              <td><%= @imc.ideal_min_weight %></td>
             </tr>
 
             <tr>
               <th>Ideal Máximo</th>
-              <td><%= @assessment.ideal_max_weight %></td>
+              <td><%= @imc.ideal_max_weight %></td>
             </tr>
           </tbody>
         </table>
@@ -101,12 +101,12 @@
           <tbody>
             <tr>
               <th>Peso Gordo</th>
-              <td><%= @assessment.fat_weight %></td>
+              <td><%= @protocol3.fat_weight %></td>
             </tr>
 
             <tr>
               <th>Peso Magro</th>
-              <td><%= @assessment.lean_body_mass %></td>
+              <td><%= @protocol3.lean_body_mass %></td>
             </tr>
           </tbody>
         </table>
@@ -132,8 +132,6 @@
         </p>
       </div>
 
-
-
       <div class="col-md-6">
         <h3>Biometria</h3>
         <table class ="table table-striped table-hover" >
@@ -154,50 +152,14 @@
         <table class ="table table-striped table-hover" >
           <tbody>
             <tr>
-              <th>Bicipital</th>
-              <td>???? mm</td>
-            </tr>
-
-            <tr>
               <th>Tricipital</th>
               <td><%= @assessment.tricipital %></td>
-            </tr>
-
-            <tr>
-              <th>Peitoral</th>
-              <td><%= @assessment.peitoral %> mm</td>
-            </tr>
-
-            <tr>
-              <th>Subescapular</th>
-              <td><%= @assessment.subescapular %></td>
-            </tr>
-
-            <tr>
-              <th>Axilar-Média</th>
-              <td><%= @assessment.axilar_media %> mm</td>
             </tr>
 
             <tr>
               <th>Suprailíaca</th>
               <td><%= @assessment.suprailiaca %> mm</td>
             </tr>
-
-            <tr>
-              <th>Abdominal</th>
-              <td><%= @assessment.abdominal %> mm</td>
-            </tr>
-
-            <tr>
-              <th>Coxa</th>
-              <td><%= @assessment.coxa %> mm</td>
-            </tr>
-
-            <tr>
-              <th>Panturilha</th>
-              <td>???? mm</td>
-            </tr>
-
           </tbody>
         </table>
       </div>
@@ -276,7 +238,7 @@
           <tbody>
             <tr>
               <th>Padrão de pontos</th>
-              <td>????????</td>
+              <td>Pollock</td>
             </tr>
           </tbody>
         </table>
@@ -284,9 +246,9 @@
 
       <div class="col-md-12">
         <div class="alert alert-info" role="alert">
-          <b>Obs.:</b> Campo com observações sobre a ficha <br/>????????????????????????????????????????????????????????????
+          <b>Obs.:</b> Campo com observações sobre a ficha <br/>
         </div>
-        <%= link_to 'Editar', edit_assessment_path(@assessment, client_id: @client.id) %> |
+        <%= link_to 'Editar', edit_pollock3_path(@assessment, client_id: @client.id) %> |
         <%= link_to 'Voltar', assessments_path(client_id: @client.id) %>
 
       </div>

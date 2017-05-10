@@ -76,28 +76,19 @@
 
             </div>
 
-
-            <div class="well">
-
-              <h4>Avaliações em dia</h4>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                  100%
-                </div>
-              </div>
-              <h4>Avaliações Próximas</h4>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 15%;">
-                  15%
-                </div>
-              </div>
-
-              <h4>Avaliações Atrasadas</h4>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                  0%
-                </div>
-              </div>
+            <div class="list-group">
+              <a href="index.html" class="list-group-item active main-color-bg">
+                <i class="material-icons">settings</i> Avaliações
+              </a>
+              <%= link_to(clients_assessments_path(filter: :in_day), class:'list-group-item') do %>
+                <i class="material-icons">description</i> Avaliações em dia<span class="badge"><%= Assessment.in_day.size %></span>
+              <% end %>
+              <%= link_to(clients_assessments_path(filter: :next_to_expire), class:'list-group-item') do %>
+                <i class="material-icons">description</i> Avaliações Próximas<span class="badge"><%= Assessment.next_to_expire.size %></span>
+              <% end %>
+              <%= link_to(clients_assessments_path(filter: :overdue), class:'list-group-item') do %>
+                <i class="material-icons">description</i> Avaliações Atrasadas<span class="badge"><%= Assessment.overdue.size %></span>
+              <% end %>
             </div>
           </div>
 

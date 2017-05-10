@@ -8,7 +8,15 @@ class Protocol3Calculation
 
   #Define a porcentagem de gordura no corpo
   def calculate
-    (4.95/density) - 4.5 * 100
+    ((4.95/density) - 4.5) * 100
+  end
+
+  def fat_weight
+    (calculate * assessment.weight).round(2)
+  end
+
+  def lean_body_mass
+    (fat_weight - assessment.weight).round(2)
   end
 
   private
