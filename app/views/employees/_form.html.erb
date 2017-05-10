@@ -5,7 +5,7 @@
   <%= f.input :email, required: true, autofocus: true %>
   <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
   <%= f.input :password_confirmation, required: true %>
-  <%= f.input :position, label:'Função:' %>
+  <%= f.input :position, collection: ['Admin', 'Personal'], label:'Função:' %>
   <%= f.input :birth_date, html5:true, label: 'Data de Nascimento:' %>
   <%= f.input :rg, label: 'RG:' %>
   <%= f.input :cpf, label: 'CPF:' %>
