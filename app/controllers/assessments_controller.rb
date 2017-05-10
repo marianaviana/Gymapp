@@ -18,62 +18,9 @@ class AssessmentsController < ApplicationController
     @assessments = @client.assessments
   end
 
-  # GET /assessments/1
-  # GET /assessments/1.json
-  def show
-    @imc       = ImcCalculation.new(@assessment)
-    @icq       = IcqCalculation.new(@assessment)
-    @protocol7 = Protocol7Calculation.new(@assessment)
-    @protocol3 = Protocol3Calculation.new(@assessment)
-  end
-
-  # GET /assessments/new
   def new
     @client     = Client.find(params[:client_id])
     @assessment = @client.assessments.build
-  end
-
-  # GET /assessments/1/edit
-  def edit
-  end
-
-  # POST /assessments
-  # POST /assessments.json
-  def create
-    client               = Client.find(assessment_params[:client_id])
-    @assessment          = Assessment.new(assessment_params)
-    @assessment.client   = client
-    @assessment.employee = current_user
-
-    if @assessment.save
-      redirect_to assessments_path(client_id: client.id), notice: 'Avaliação criada com sucesso.'
-    else
-      render :new
-    end
-  end
-
-  # PATCH/PUT /assessments/1
-  # PATCH/PUT /assessments/1.json
-  def update
-    @client     = Client.find(assessment_params[:client_id])
-    @assessment = @client.assessments.find(params[:id])
-    respond_to do |format|
-      if @assessment.update(assessment_params)
-        format.html { redirect_to assessment_path(@assessment, client_id: @client.id), notice: 'Avaliação atualizada com sucesso.' }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
-
-  # DELETE /assessments/1
-  # DELETE /assessments/1.json
-  def destroy
-    @assessment.destroy
-    respond_to do |format|
-      format.html { redirect_to assessments_url, notice: 'Avaliação foi excluida com sucesso' }
-      format.json { head :no_content }
-    end
   end
 
   private

@@ -7,6 +7,8 @@ class Client < User
   has_many :gymcards
   has_many :assessments
   has_many :pollock3
+  has_many :pollock7
+  has_many :icq_assessments
 
   def age
     value = Time.now.year - self.birth_date.year

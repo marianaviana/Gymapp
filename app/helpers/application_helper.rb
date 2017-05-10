@@ -8,4 +8,9 @@ module ApplicationHelper
     return '' if date.nil?
     date.strftime("%H:%M:%S")
   end
+
+  def translate_type(type)
+    return "ICQ" if type == "IcqAssessment"
+    type
+  end
 end

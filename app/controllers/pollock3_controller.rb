@@ -40,6 +40,15 @@ class Pollock3Controller < ApplicationController
     end
   end
 
+  def destroy
+    @assessment.destroy
+    respond_to do |format|
+      @client_id = @assessment.client_id
+      format.html { redirect_to assessments_path(client_id: @client_id), notice: 'Avaliação foi excluida com sucesso' }
+      format.json { head :no_content }
+    end
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_assessment

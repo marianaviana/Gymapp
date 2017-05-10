@@ -6,10 +6,9 @@
 <div class="panel-body">
     <div class="row">
         <div class="btn-group group-bottom col-xs-11 col-center-block" role="group" aria-label="...">
-            <button type="button" class="btn btn-default">Indice de Massa Corporal</button>
-            <button type="button" class="btn btn-default">Indice Cintura Quadril</button>
-            <%= link_to "Protocolo Pollock 3 dobras", new_pollock3_path(client_id: @client.id) %>
-            <button type="button" class="btn btn-default">Protoco Pollock 3 Dobras</button>
+            <%= link_to "Indice Cintura Quadril", new_icq_path(client_id: @client.id), class: 'btn btn-default' %>
+            <%= link_to "Protocolo Pollock 3 dobras", new_pollock3_path(client_id: @client.id), class: 'btn btn-default' %>
+            <%= link_to "Protocolo Pollock 7 dobras", new_pollock7_path(client_id: @client.id), class: 'btn btn-default' %>
         </div>
     </div>
 
