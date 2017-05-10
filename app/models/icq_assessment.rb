@@ -1,0 +1,2 @@
+class IcqAssessment < Assessment
+end

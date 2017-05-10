@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :equipment
 
   resources :pollock3
+  resources :pollock7
+  resources :icq
 
   resources :assessments do
     collection do
