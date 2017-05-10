@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :clients
   resources :employees
   resources :equipment
+
+  resources :pollock3
+
   resources :assessments do
     collection do
       get 'clients'
