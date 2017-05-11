@@ -168,8 +168,10 @@ Employee.create(name: 'Luiza', position: 'Personal', birth_date: Date.new(1993, 
                 admission_date: Date.today, password: '123456', password_confirmation: '123456',
                 email: 'luiza@email.com')
 
-Admin.create(name: 'Luiza', password: '123456', password_confirmation: '123456',
-             email: 'admin@email.com')
+Employee.create(name: 'Luiza', position: 'Personal', birth_date: Date.new(1993, 07, 30),
+                rg: '12345', cpf: '12345556', telephone: '22 94528525', 
+                admission_date: Date.today, password: '123456', password_confirmation: '123456',
+                email: 'admin@email.com', admin: true)
 
 
 
