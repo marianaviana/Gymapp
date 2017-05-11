@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   before_save :set_role
 
-  def admin?
+  def role_admin?
     has_role? "admin"
   end
 
@@ -21,7 +21,7 @@ class User < ApplicationRecord
 
   def set_role
     case self.type
-    when "Admin" then
+    when self.admin? then
       add_role "admin"
     when "Employee" then
       add_role "employee"
