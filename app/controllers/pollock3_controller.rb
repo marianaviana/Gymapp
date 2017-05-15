@@ -41,12 +41,7 @@ class Pollock3Controller < ApplicationController
   end
 
   def destroy
-    @assessment.destroy
-    respond_to do |format|
-      @client_id = @assessment.client_id
-      format.html { redirect_to assessments_path(client_id: @client_id), notice: 'Avaliação foi excluida com sucesso' }
-      format.json { head :no_content }
-    end
+    #Avaliações não podem ser excluídas
   end
 
   private
@@ -59,9 +54,9 @@ class Pollock3Controller < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def assessment_params
     params.require(:pollock3).permit(:client_id, :employee_id, :height, :weight, :neck, :shoulder, :chest,
-                                     :waist, :abdomen, :hip, :right_arm, :left_arm, :right_forearm, :left_forearm,
-                                     :right_thigh, :left_thigh, :right_calf, :left_calf, :tricipital, :suprailiaca,
-                                     :coxa, :next_assessment_date)
+     :waist, :abdomen, :hip, :right_arm, :left_arm, :right_forearm, :left_forearm,
+     :right_thigh, :left_thigh, :right_calf, :left_calf, :tricipital, :suprailiaca,
+     :coxa, :next_assessment_date)
 
   end
 end

@@ -26,7 +26,6 @@
           <td><%= date_formatter(assessment.next_assessment_date) %></td>
           <td><%= link_to 'exibir', show_path_by_type(assessment, @client.id), class: "btn btn-default" %></td>
           <td><%= link_to 'editar', edit_path_by_type(assessment, @client.id), class: "btn btn-default" %></td>
-          <td><%= link_to 'remover', destroy_path_by_type(assessment, client_id: @client.id), method: :delete, data: { confirm: 'Você tem certeza que deseja remover?' }, class: "btn btn-danger" %></td>
         </tr>
         <% end %>
       </tbody>

@@ -37,7 +37,7 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
+        format.html { redirect_to @employee, notice: 'Funcionário criado com sucesso.' }
         format.json { render :show, status: :created, location: @employee }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class EmployeesController < ApplicationController
     authorize @employee, :update?
     respond_to do |format|
       if @employee.update(employee_params)
-        format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
+        format.html { redirect_to @employee, notice: 'Funcionário atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @employee }
       else
         format.html { render :edit }
@@ -81,6 +81,6 @@ class EmployeesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
       params.require(:employee).permit(:name, :position, :birth_date, :rg, :cpf, :telephone, :admission_date, :avatar,
-                                       :email, :password, :password_confirmation)
+       :email, :password, :password_confirmation)
     end
-end
+  end

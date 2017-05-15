@@ -16,13 +16,13 @@ class Protocol3Calculation
   end
 
   def lean_body_mass
-    (fat_weight - assessment.weight).round(2)
+    (assessment.weight - fat_weight).round(2)
   end
 
   private
 
   def density
-    return (1.10938 - (0.0008267 * sum_3)) + (0.0000016 * (sum_3**2)) - (0.0002574 * age) if gender == 'Masculino'
+    return (1.1093800 - (0.0008267 * sum_3)) + (0.0000016 * (sum_3**2)) - (0.0002574 * age) if gender == 'Masculino'
 
     (1.0994921 - (0.0009929 * sum_3)) + (0.0000023 * (sum_3**2)) - (0.0001393 * age)
   end
@@ -38,7 +38,7 @@ class Protocol3Calculation
   def suprailiaca
     assessment.suprailiaca
   end
-  
+
   def coxa
     assessment.coxa
   end

@@ -6,18 +6,18 @@
   </div>
   <div class="panel-body">
     <%= simple_form_for(@assessment, url: icq_path) do |f| %>
-      <div class="form-inputs">
-        <%= f.hidden_field :client_id, value: @client.id %>
-        <%= f.input :weight %>
-        <%= f.input :height %>
-        <%= f.input :waist %>
-        <%= f.input :hip %>
-        <%= f.input :next_assessment_date, html5: true, label: 'Data próxima avaliação:' %>
-      </div>
+    <div class="form-inputs">
+      <%= f.hidden_field :client_id, value: @client.id %>
+      <%= f.input :weight, label: 'Peso:' %>
+      <%= f.input :height, label: 'Altura:' %>
+      <%= f.input :waist, label: 'Cintura:' %>
+      <%= f.input :hip, label: 'Quadril:' %>
+      <%= f.input :next_assessment_date, html5: true, label: 'Próxima avaliação:' %>
+    </div>
 
-      <div class="form-actions">
-        <%= f.submit 'Salvar', class:'btn btn-success pull-right' %>
-      </div>
+    <div class="form-actions">
+      <%= f.submit 'Salvar', class:'btn btn-success pull-right' %>
+    </div>
     <% end %>
 
     <br />

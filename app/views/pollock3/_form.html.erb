@@ -5,33 +5,33 @@
   </div>
   <div class="panel-body">
     <%= simple_form_for(@assessment, url: pollock3_index_path) do |f| %>
-      <div class="form-inputs">
-        <%= f.hidden_field :client_id, value: @client.id %>
-        <%= f.input :weight %>
-        <%= f.input :height %>
-        <%= f.input :tricipital %>
-        <%= f.input :suprailiaca %>
-        <%= f.input :coxa %>
-        <%= f.input :neck %>
-        <%= f.input :shoulder %>
-        <%= f.input :chest %>
-        <%= f.input :waist %>
-        <%= f.input :abdomen %>
-        <%= f.input :hip %>
-        <%= f.input :right_arm %>
-        <%= f.input :left_arm %>
-        <%= f.input :right_forearm %>
-        <%= f.input :left_forearm %>
-        <%= f.input :right_thigh %>
-        <%= f.input :left_thigh %>
-        <%= f.input :right_calf %>
-        <%= f.input :left_calf %>
-        <%= f.input :next_assessment_date, html5: true, label: 'Data próxima avaliação:' %>
-      </div>
+    <div class="form-inputs">
+      <%= f.hidden_field :client_id, value: @client.id %>
+      <%= f.input :weight, label: 'Peso:', placeholder:'Peso em kg' %>
+      <%= f.input :height, label: 'Altura:', placeholder:'Altura em cm'  %>
+      <%= f.input :tricipital, label: 'Tricipital:' %>
+      <%= f.input :suprailiaca, label: 'Supra-ilíaca:' %>
+      <%= f.input :coxa, label: 'Coxa:' %>
+      <%= f.input :neck, label: 'Pescoço:' %>
+      <%= f.input :shoulder, label: 'Ombro:' %>
+      <%= f.input :chest, label: 'Tórax:' %>
+      <%= f.input :waist, label: 'Cintura:' %>
+      <%= f.input :abdomen, label: 'Abdome:' %>
+      <%= f.input :hip, label: 'Quadril:' %>
+      <%= f.input :right_arm, label: 'Braço Direito:' %>
+      <%= f.input :left_arm, label: 'Braço Esquerdo:' %>
+      <%= f.input :right_forearm, label: 'Antebraço Direito:' %>
+      <%= f.input :left_forearm, label: 'Antebraço Esquerdo:' %>
+      <%= f.input :right_thigh, label: 'Coxa Direita:' %>
+      <%= f.input :left_thigh, label: 'Coxa Esquerda:' %>
+      <%= f.input :right_calf, label: 'Panturrilha Direita:' %>
+      <%= f.input :left_calf, label: 'Panturrilha Esquerda:' %>
+      <%= f.input :next_assessment_date, html5: true, label: 'Próxima avaliação:' %>
+    </div>
 
-      <div class="form-actions">
-        <%= f.submit 'Salvar', class:'btn btn-success pull-right' %>
-      </div>
+    <div class="form-actions">
+      <%= f.submit 'Salvar', class:'btn btn-success pull-right' %>
+    </div>
     <% end %>
 
     <br />
