@@ -7,9 +7,9 @@ class EmployeesController < ApplicationController
     if params[:employee] && params[:employee].key?(:q)
       q = params[:employee][:q]
 
-      @employees = Employee.where('name LIKE ?', "%#{q}%")
+      @employees = Employee.where('name LIKE ?', "%#{q}%").order('name ASC').paginate(:page => params[:page])
     else
-      @employees = Employee.all
+      @employees = Employee.all.order('name ASC').paginate(:page => params[:page])
     end
   end
 

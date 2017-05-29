@@ -23,4 +23,5 @@ class Equipment < ApplicationRecord
 	def upcase_name
 		self.name = self.name.upcase
 	end
+	self.per_page = 5
 end

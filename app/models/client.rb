@@ -23,4 +23,5 @@ class Client < User
   def password_required?
     false
   end
+  self.per_page = 5
 end

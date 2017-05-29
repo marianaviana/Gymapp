@@ -45,6 +45,9 @@
         <% end %>
       </tbody>
     </table>
+    <div class="center">
+      <%= will_paginate @equipament, previous_label: '« Anterior', next_label: 'Proxima »', renderer: BootstrapPagination::Rails %>
+    </div>
   </div>
 </div>
 <%= link_to 'Novo Equipamento', new_equipment_path, class: 'btn btn-success col-md-12' %>

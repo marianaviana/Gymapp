@@ -59,11 +59,7 @@ a:hover{
 .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, 
 .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, 
 .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9{
-
 	padding-top: 10px;
-
-
-
 }
 
 /* Breadcrumb */
@@ -100,7 +96,6 @@ a:hover{
 .img-thumbnail{
 	width: 250px;
 	margin-bottom: 15px;
-
 }
 
 .col-center-block {
@@ -121,4 +116,21 @@ a:hover{
 .table > tfoot > tr > th,
 .table > tfoot > tr > td {
 	vertical-align: middle;
+}
+
+.center {
+	text-align: center;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+	background-color: #1c1e2f;
+	border-color: #1c1e2f;
+}
+
+.pagination > li > a, .pagination > li > span {
+	color: #1c1e2f;
+}
+
+.pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
+	color: #1c1e2F;
 }

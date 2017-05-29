@@ -7,9 +7,9 @@ class EquipmentController < ApplicationController
     if params[:search] && params[:search].key?(:q)
       q = params[:search][:q]
 
-      @equipment = Equipment.where('name LIKE ?', "%#{q}%")
+      @equipment = Equipment.where('name LIKE ?', "%#{q}%").order('name ASC').paginate(:page => params[:page])
     else
-      @equipment = Equipment.all
+      @equipment = Equipment.all.order('name ASC').paginate(:page => params[:page])
     end
   end
 

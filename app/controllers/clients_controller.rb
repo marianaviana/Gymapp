@@ -6,9 +6,9 @@ class ClientsController < ApplicationController
   def index
     if params[:search] && params[:search].key?(:q)
       q = params[:search][:q]
-      @clients = Client.where('name LIKE ?', "%#{q}%")
+      @clients = Client.where('name LIKE ?', "%#{q}%").order('name ASC').paginate(:page => params[:page])
     else
-      @clients = Client.all
+      @clients = Client.all.order('name ASC').paginate(:page => params[:page])
     end
   end
 
