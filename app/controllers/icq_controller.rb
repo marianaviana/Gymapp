@@ -41,12 +41,7 @@ class IcqController < ApplicationController
   end
 
   def destroy
-    @assessment.destroy
-    respond_to do |format|
-      @client_id = @assessment.client_id
-      format.html { redirect_to assessments_path(client_id: @client_id), notice: 'Avaliação foi excluida com sucesso' }
-      format.json { head :no_content }
-    end
+    #Avaliações não podem ser excluídas
   end
 
   private
@@ -59,7 +54,7 @@ class IcqController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def assessment_params
     params.require(:icq_assessment).permit(:client_id, :employee_id, :height, :weight,
-                                     :waist, :hip, :next_assessment_date)
+     :waist, :hip, :next_assessment_date)
 
   end
 end

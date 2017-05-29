@@ -39,7 +39,6 @@
           <td><%= client.gender %></td>
           <td><%= date_formatter(client.birth_date) %></td>
           <td><%= link_to 'exibir', gymcards_path(client_id: client.id), class: "btn btn-default" %></td>
-          <td><%= link_to 'editar', edit_client_path(client), class: "btn btn-default" %></td>
         </tr>
         <% end %>
       </tbody>

@@ -2,12 +2,12 @@ class Protocol7Calculation
   attr_accessor :assessment, :client
 
   METHODS =  [ :tricipital, :subescapular, :suprailiaca, :abdominal,
-	       :axilar_media, :peitoral, :coxa ]
+    :axilar_media, :peitoral, :coxa ]
 
-  def initialize(assessment)
-    @assessment = assessment
-    @client     = assessment.client
-  end
+    def initialize(assessment)
+      @assessment = assessment
+      @client     = assessment.client
+    end
 
   #Define a porcentagem de gordura no corpo
   def calculate
@@ -19,7 +19,7 @@ class Protocol7Calculation
   end
 
   def lean_body_mass
-    (fat_weight - assessment.weight).round(2)
+    (assessment.weight - fat_weight).round(2)
   end
 
   METHODS.each do |attribute|
@@ -31,9 +31,9 @@ class Protocol7Calculation
   private
 
   def density
-    return (1.112 - (0.00043499 * sum_7)) + (0.00000055 * (sum_3**2)) - (0.00012882 * age) if gender == 'Masculino'
+    return (1.11200000 - (0.00043499 * sum_7)) + (0.00000055 * (sum_3**2)) - (0.00028826 * age) if gender == 'Masculino'
 
-    (1.097 - (0.0004697 * sum_7)) + (0.00000056 * (sum_3**2)) - (0.00012828 * age)
+    (1.0970 - (0.00046971 * sum_7)) + (0.00000056 * (sum_3**2)) - (0.00012828 * age)
   end
 
   def sum_3
