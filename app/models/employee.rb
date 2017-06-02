@@ -7,8 +7,8 @@ class Employee < User
   validates :password, presence: { message: 'Campo não pode ficar em branco.' }
   validates :position, presence: true
   validates :birth_date, presence: true
-  validates :rg, allow_nil: true, numericality: { only_integer: true, message: 'Somente números.' }
-  validates :cpf, allow_nil: true, uniqueness:{ message:'CPF já cadastrado' }, numericality: { only_integer: true, message: 'Somente números.' }
+  validates :rg, allow_blank: true, numericality: { only_integer: true, message: 'Somente números.' }
+  validates :cpf, allow_blank: true, uniqueness:{ message:'CPF já cadastrado' }, numericality: { only_integer: true, message: 'Somente números.' }
   validates :telephone, presence: true, numericality: { only_integer: true, message: 'Somente números.' }
   validates :admission_date, presence: true
 
@@ -23,20 +23,5 @@ class Employee < User
 
   private
 
-  def rg_required?
-    false
-  end
-
-  def cpf_required?
-    false
-  end
-
-  #def password_required?
-  #false
-  #end
-
-  #def email_required?
-  #false
-  #end
   self.per_page = 5
 end
