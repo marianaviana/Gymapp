@@ -149,31 +149,35 @@ end
 
 #Cria Funcionários e Clientes
 (1..10).each do |number|
-  Client.create(email: 	"cliente#{number},@gmail.com", name: "Cliente#{number},", position: 'Admin', 
-		gender: 'Masculino', birth_date: Date.today, rg: 000000000, cpf: 00000000, 
-		address: 'Rua x', telephone: 99999999, blood_type: 'O-', 
-		subscription_date: Date.today, payment_date: Date.today+11, admission_date: Date.today+10)
+  Client.create(email: 	"cliente#{number}@gmail.com", name: "Cliente#{number}", position: 'Admin', 
+    gender: 'Masculino', birth_date: Date.today, rg: 000000000, cpf: 00000000, 
+    address: 'Rua x', telephone: 99999999, blood_type: 'O-', 
+    subscription_date: Date.today, payment_date: Date.today+11, admission_date: Date.today+10)
 end
 
 (1..10).each do |number|
-  Employee.create(email: 	"empregado#{number},@gmail.com", name: "Empregado#{number}", position: 'Admin', 
-		  gender: 'Masculino', birth_date: Date.today, rg: 000000000, cpf: number, 
-		  address: 'Rua x', telephone: 99999999, blood_type: 'O-', 
-		  subscription_date: Date.today, payment_date: Date.today+11, admission_date: Date.today+10)
+  Employee.create(email: 	"empregado#{number}@gmail.com", name: "Empregado#{number}", position: 'Personal', 
+    gender: 'Masculino', birth_date: Date.today, rg: 000000000, cpf: number, 
+    address: 'Rua x', telephone: 99999999, blood_type: 'O-', 
+    subscription_date: Date.today, password: '123456', password_confirmation: '123456',
+    payment_date: Date.today+11, admission_date: Date.today+10)
 end
 
 
 Employee.create(name: 'Luiza', position: 'Personal', birth_date: Date.new(1993, 07, 30),
-                rg: '12345', cpf: '123456', telephone: '22 94528525', 
-                admission_date: Date.today, password: '123456', password_confirmation: '123456',
-                email: 'luiza@email.com')
+  rg: '12345', cpf: '123456', telephone: '2294528525', 
+  admission_date: Date.today, password: '123456', password_confirmation: '123456',
+  email: 'luiza@email.com')
 
-Employee.create(name: 'Luiza', position: 'Personal', birth_date: Date.new(1993, 07, 30),
-                rg: '12345', cpf: '12345556', telephone: '22 94528525', 
-                admission_date: Date.today, password: '123456', password_confirmation: '123456',
-                email: 'admin@email.com', admin: true)
+Employee.create(name: 'Luiza', position: 'Admin', birth_date: Date.new(1993, 07, 30),
+  rg: '12345', cpf: '12345556', telephone: '2294528525', 
+  admission_date: Date.today, password: '123456', password_confirmation: '123456',
+  email: 'admin@email.com', admin: true)
 
-
+Employee.create(name: 'Mariana', position: 'Admin', birth_date: Date.new(1994, 11, 19),
+  rg: '123456', cpf: '123455567', telephone: '22999999999', 
+  admission_date: Date.today, password: '123456', password_confirmation: '123456',
+  email: 'immarianaviana@gmail.com', admin: true)
 
 Client.all.each do |client|
   IcqAssessment.create(client_id: client.id, weight: "85", height: "181", waist: "65", hip: "65", next_assessment_date: "2017-05-20", employee: Employee.last )
@@ -186,4 +190,3 @@ Client.all.each do |client|
     IcqAssessment.create(client_id: client.id, weight: "85", height: "181", waist: "65", hip: "65", next_assessment_date: "2017-01-20", employee: Employee.last )
   end
 end
-
