@@ -4,7 +4,7 @@ class AssessmentsController < ApplicationController
 
   def clients
     if params[:filter]
-      @clients = Client.where(id: filter_by_ids)
+      @clients = Client.where(id: filter_by_ids).order('name ASC').paginate(:page => params[:page])
     elsif params[:search] && params[:search].key?(:q)
       q = params[:search][:q]
       @clients = Client.where('name LIKE ?', "%#{q}%").order('name ASC').paginate(:page => params[:page])
