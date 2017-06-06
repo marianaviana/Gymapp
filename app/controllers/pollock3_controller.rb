@@ -25,9 +25,18 @@ class Pollock3Controller < ApplicationController
     @imc       = ImcCalculation.new(@assessment)
 
     @chart = LazyHighCharts::HighChart.new('bar') do |f|
+      f.options[:colors] = ['#000080', '#ff0000', '#722f37', '#CCCC00', 'green']
+      f.options[:plotOptions] = { series: { animation: false, 
+                                            enableMouseTracking: false, 
+                                            shadow: false },
+                                  column: { colorByPoint: true }
+                                }
+
       f.xAxis(categories: ["Atual", "P. Min", "P. Max", "Gordo", "Magro"])
       f.series(name: 'Dados em quilos', yAxis: 0, data: [@assessment.weight, @imc.ideal_min_weight,
-                                @imc.ideal_max_weight, @protocol3.fat_weight, @protocol3.lean_body_mass])
+                                                         @imc.ideal_max_weight, @protocol3.fat_weight, @protocol3.lean_body_mass],
+               dataLabels: { enabled: true },
+               showInLegend: false)
 
       f.chart({defaultSeriesType: "column"})
     end
