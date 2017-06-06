@@ -24,7 +24,12 @@
             data: { confirm: 'Você tem certeza que deseja desabilitar?' },
             class: "btn btn-danger" %></td>
             <td><%= link_to 'Exibir', gymcard_path(gymcard, client_id: @client.id), class: "btn btn-default" %></td>
-            <% end %>
+          <% elsif !gymcard.active?%>
+            <td><%= link_to 'Habilitar', gymcard_path(gymcard, client_id: @client.id), method: :delete,
+                data: { confirm: 'Você tem certeza que deseja habilitar?' },
+                class: "btn btn-primary" %></td>
+            <td><%= link_to 'Exibir', gymcard_path(gymcard, client_id: @client.id), class: "btn btn-default" %></td>
+          <% end %>
           </tr>
           <% end %>
         </tbody>

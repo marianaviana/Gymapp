@@ -164,15 +164,22 @@ end
 end
 
 
-Employee.create(name: 'Luiza', position: 'Admin', birth_date: Date.new(1993, 07, 30),
-  rg: '12345', cpf: '12345556', telephone: '2294528525', 
-  admission_date: Date.today, password: '123456', password_confirmation: '123456',
-  email: 'meloluiza@live.com', admin: true)
+luiza = Employee.create(name: 'Luiza', position: 'Admin', birth_date: Date.new(1993, 07, 30),
+                        rg: '12345', cpf: '12345556', telephone: '2294528525', 
+                        admission_date: Date.today, email: 'meloluiza@live.com', admin: true)
 
-Employee.create(name: 'Mariana', position: 'Admin', birth_date: Date.new(1994, 11, 19),
+luiza.password =  '123456' 
+luiza.password_confirmation =  '123456'
+
+luiza.save
+
+mariana = Employee.create(name: 'Mariana', position: 'Admin', birth_date: Date.new(1994, 11, 19),
   rg: '123456', cpf: '123455567', telephone: '22999999999', 
-  admission_date: Date.today, password: '123456', password_confirmation: '123456',
-  email: 'immarianaviana@gmail.com', admin: true)
+  admission_date: Date.today, email: 'immarianaviana@gmail.com', admin: true)
+
+mariana.password =  '123456'
+mariana.password_confirmation =  '123456'
+mariana.save
 
 Client.all.each do |client|
   IcqAssessment.create(client_id: client.id, weight: "85", height: "181", waist: "65", hip: "65", next_assessment_date: "2017-05-20", employee: Employee.last )

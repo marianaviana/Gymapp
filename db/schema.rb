@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511011434) do
+ActiveRecord::Schema.define(version: 20170606025725) do
 
   create_table "assessments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "client_id"
@@ -47,10 +47,11 @@ ActiveRecord::Schema.define(version: 20170511011434) do
     t.float    "right_calf",           limit: 24
     t.float    "left_calf",            limit: 24
     t.string   "result"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "type"
     t.date     "next_assessment_date"
+    t.boolean  "done",                            default: false
   end
 
   create_table "cycles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

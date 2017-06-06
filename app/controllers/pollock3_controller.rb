@@ -23,6 +23,22 @@ class Pollock3Controller < ApplicationController
   def show
     @protocol3 = Protocol3Calculation.new(@assessment)
     @imc       = ImcCalculation.new(@assessment)
+
+    @chart = LazyHighCharts::HighChart.new('bar') do |f|
+      f.xAxis(categories: ["Atual", "P. Min", "P. Max", "Gordo", "Magro"])
+      f.series(name: 'Dados em quilos', yAxis: 0, data: [@assessment.weight, @imc.ideal_min_weight,
+                                @imc.ideal_max_weight, @protocol3.fat_weight, @protocol3.lean_body_mass])
+
+      f.chart({defaultSeriesType: "column"})
+    end
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'pollock3',
+               template: 'pollock3/show.pdf.erb'
+      end
+    end
   end
 
   def edit

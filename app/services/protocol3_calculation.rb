@@ -12,7 +12,7 @@ class Protocol3Calculation
   end
 
   def fat_weight
-    (calculate * assessment.weight).round(2)
+    ((calculate/100) * assessment.weight).round(2)
   end
 
   def lean_body_mass
