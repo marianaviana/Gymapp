@@ -21,6 +21,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'will_paginate', '~> 3.1.1'
 gem 'will_paginate-bootstrap'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary-edge'
+gem 'highcharts-rails'
+gem 'lazy_high_charts'
 
 
 group :development, :test do

@@ -23,6 +23,14 @@ class IcqController < ApplicationController
   def show
     @protocol7 = IcqCalculation.new(@assessment)
     @imc       = ImcCalculation.new(@assessment)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'icq',
+               template: 'icq/show.pdf.erb'
+      end
+    end
   end
 
   def edit

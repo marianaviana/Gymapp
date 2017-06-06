@@ -23,6 +23,34 @@ class Pollock7Controller < ApplicationController
   def show
     @protocol7 = Protocol7Calculation.new(@assessment)
     @imc       = ImcCalculation.new(@assessment)
+
+    @chart = LazyHighCharts::HighChart.new('bar') do |f|
+      f.options[:colors] = ['#000080', '#ff0000', '#722f37', '#CCCC00', 'green']
+
+      f.options[:plotOptions] = { series: { animation: false, 
+                                            enableMouseTracking: false, 
+                                            shadow: false },
+                                  column: { colorByPoint: true }
+                                }
+
+      f.xAxis(categories: ["Atual", "P. Min", "P. Max", "Gordo", "Magro"])
+      f.series(yAxis: 0, data: [@assessment.weight, @imc.ideal_min_weight,
+                                @imc.ideal_max_weight, @protocol7.fat_weight, @protocol7.lean_body_mass], 
+               dataLabels: { enabled: true },
+               showInLegend: false)
+
+
+      f.chart({defaultSeriesType: "column"})
+    end
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'pollock7',
+               template: 'pollock7/show.pdf.erb'
+             
+      end
+    end
   end
 
   def edit

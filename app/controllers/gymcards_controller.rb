@@ -52,12 +52,17 @@ class GymcardsController < ApplicationController
     @client  = Client.find(params[:client_id])
     @gymcard = Gymcard.find(params[:id])
 
-    if @gymcard.update_attribute(:active, false)
+    if @gymcard.active
+      @gymcard.update_attribute(:active, false)
       redirect_to gymcards_path(client_id: @client.id),
-      notice: 'Ciclo desativado com sucesso'
+                  notice: 'Ciclo desativado com sucesso'
+    elsif !@gymcard.active
+      @gymcard.update_attribute(:active, true)
+      redirect_to gymcards_path(client_id: @client.id),
+                  notice: 'Ciclo reativado com sucesso'
     else
       redirect_to gymcards_pathgym(client_id: @client.id),
-      alert: 'Algum problema ocorreu tentando desativar o ciclo'
+                  alert: 'Algum problema ocorreu tentando desativar o ciclo'
     end
   end
 

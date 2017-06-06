@@ -13,16 +13,16 @@ module AssessmentsHelper
     end
   end
 
-  def show_path_by_type(assessment, client_id)
+  def show_path_by_type(assessment, client_id, format = :html)
     case assessment.type
     when "Pollock3"
-      pollock3_path(assessment, client_id: client_id)
+      pollock3_path(assessment, client_id: client_id, format: format)
     when "Pollock7"
-      pollock7_path(assessment, client_id: client_id)
+      pollock7_path(assessment, client_id: client_id, format: format)
     when "IcqAssessment"
-      icq_path(assessment, client_id: client_id)
+      icq_path(assessment, client_id: client_id, format: format)
     else
-      assessment_path(assessment, client_id: client_id)
+      assessment_path(assessment, client_id: client_id, format: format)
     end
   end
 
