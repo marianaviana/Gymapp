@@ -39,7 +39,7 @@
           <td><%= link_to 'exibir', employee, class: "btn btn-default" %></td>
           <% if policy(employee).update? %>
           <td><%= link_to 'editar', edit_employee_path(employee), class: "btn btn-default" %></td>
-          <td><%= link_to 'remover', employee, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          <td><%= link_to 'Desabilitar', employee, method: :delete, data: { confirm: 'Você tem certeza que deseja desabilitar?' }, class: "btn btn-danger" %></td>
           <% end %>
         </tr>
         <% end %>

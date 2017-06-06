@@ -164,15 +164,10 @@ end
 end
 
 
-Employee.create(name: 'Luiza', position: 'Personal', birth_date: Date.new(1993, 07, 30),
-  rg: '12345', cpf: '123456', telephone: '2294528525', 
-  admission_date: Date.today, password: '123456', password_confirmation: '123456',
-  email: 'luiza@email.com')
-
 Employee.create(name: 'Luiza', position: 'Admin', birth_date: Date.new(1993, 07, 30),
   rg: '12345', cpf: '12345556', telephone: '2294528525', 
   admission_date: Date.today, password: '123456', password_confirmation: '123456',
-  email: 'admin@email.com', admin: true)
+  email: 'meloluiza@live.com', admin: true)
 
 Employee.create(name: 'Mariana', position: 'Admin', birth_date: Date.new(1994, 11, 19),
   rg: '123456', cpf: '123455567', telephone: '22999999999', 

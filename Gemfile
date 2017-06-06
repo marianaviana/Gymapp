@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'will_paginate', '~> 3.1.1'
 gem 'will_paginate-bootstrap'
 
+
 group :development, :test do
 	gem 'byebug', platform: :mri
 end
