@@ -59,10 +59,18 @@ class ClientsController < ApplicationController
   # DELETE /clients/1
   # DELETE /clients/1.json
   def destroy
-    @client.destroy
-    respond_to do |format|
-      format.html { redirect_to clients_url, notice: 'Client was successfully destroyed.' }
-      format.json { head :no_content }
+    @client = Client.find(params[:id])
+    if @client.active
+      @client.update_attribute(:active, false)
+      redirect_to clients_path(client_id: @client.id),
+      notice: 'Cliente desativado com sucesso'
+    elsif !@client.active
+      @client.update_attribute(:active, true)
+      redirect_to clients_path(client_id: @client.id),
+      notice: 'Cliente reativado com sucesso'
+    else
+      redirect_to clients_path(client_id: @client.id),
+      alert: 'Algum problema ocorreu tentando desativar o ciente'
     end
   end
 

@@ -41,16 +41,23 @@
           <td><%= client.telephone %></td>
           <td><%= client.payment_date %></td>
           <td><%= link_to 'exibir', client, class: "btn btn-default" %></td>
+          <% if client.active? %>
           <td><%= link_to 'editar', edit_client_path(client), class: "btn btn-default" %></td>
+          <% end %>
+          <% if client.active? %>
           <td><%= link_to 'Desabilitar', client, method: :delete, data: { confirm: 'Você tem certeza que deseja desabilitar?' }, class: "btn btn-danger" %></td>
+          <% elsif !client.active?%>
+          <td><%= link_to 'Habilitar', client, method: :delete, data: { confirm: 'Você tem certeza que deseja reabilitar?' }, class: "btn btn-primary" %></td>
+          <% end %>
         </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <div class="center">
-      <%= will_paginate @clients, previous_label: '« Anterior', next_label: 'Proxima »', renderer: BootstrapPagination::Rails %>
-    </div>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="center">
+    <%= will_paginate @clients, previous_label: '« Anterior', next_label: 'Proxima »', renderer: BootstrapPagination::Rails %>
   </div>
+</div>
 </div>
 
 <%= link_to 'Novo Cliente', new_client_path, class: 'btn btn-success col-md-12' %>

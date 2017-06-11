@@ -38,8 +38,14 @@
           <td><%= employee.telephone %></td>
           <td><%= link_to 'exibir', employee, class: "btn btn-default" %></td>
           <% if policy(employee).update? %>
+          <% if employee.active? %>
           <td><%= link_to 'editar', edit_employee_path(employee), class: "btn btn-default" %></td>
+          <% end %>
+          <% if employee.active? %>
           <td><%= link_to 'Desabilitar', employee, method: :delete, data: { confirm: 'Você tem certeza que deseja desabilitar?' }, class: "btn btn-danger" %></td>
+          <% elsif !employee.active?%>
+          <td><%= link_to 'Habilitar', employee, method: :delete, data: { confirm: 'Você tem certeza que deseja reabilitar?' }, class: "btn btn-primary" %></td>
+          <% end %>
           <% end %>
         </tr>
         <% end %>

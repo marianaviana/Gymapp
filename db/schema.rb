@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606025725) do
+ActiveRecord::Schema.define(version: 20170611211250) do
 
   create_table "assessments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "client_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170606025725) do
     t.string   "type"
     t.date     "next_assessment_date"
     t.boolean  "done",                            default: false
+    t.string   "goal"
   end
 
   create_table "cycles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -138,7 +139,7 @@ ActiveRecord::Schema.define(version: 20170606025725) do
     t.text     "allergy",                 limit: 65535
     t.text     "obs",                     limit: 65535
     t.date     "subscription_date"
-    t.date     "payment_date"
+    t.integer  "payment_date"
     t.date     "admission_date"
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
@@ -150,6 +151,7 @@ ActiveRecord::Schema.define(version: 20170606025725) do
     t.datetime "avatar_updated_at"
     t.string   "type"
     t.boolean  "admin",                                 default: false
+    t.boolean  "active",                                default: true
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
