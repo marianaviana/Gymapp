@@ -54,6 +54,9 @@ class CyclesController < ApplicationController
                                                         :load,
                                                         :equipment_id,
                                                         :obs,
-                                                        :_destroy])
+                                                        :_destroy,
+                                                        :exercise_id,
+                                                        :grouptype_id,
+                                                        ])
   end
 end
