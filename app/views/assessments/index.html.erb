@@ -26,12 +26,14 @@
           <td><%= date_formatter(assessment.next_assessment_date) %></td>
           <td><%= link_to 'exibir', show_path_by_type(assessment, @client.id), class: "btn btn-default" %></td>
           <td><%= link_to 'editar', edit_path_by_type(assessment, @client.id), class: "btn btn-default" %></td>
-          <td><%= link_to 'download', show_path_by_type(assessment, @client.id, :pdf), class: "btn btn-primary" %></td>
+          <td><%= link_to 'download', show_path_by_type(assessment, @client.id, :pdf), class: "btn btn-primary", target: '_blank' %></td>
         </tr>
         <% end %>
       </tbody>
     </table>
 
   </div>
-  <%= link_to 'Nova avaliação', new_assessment_path(client_id: @client.id), class: 'btn btn-success col-md-12' %>
+
 </div>
+<%= link_to 'Nova avaliação', new_assessment_path(client_id: @client.id), class: 'btn btn-success col-md-12' %>
+

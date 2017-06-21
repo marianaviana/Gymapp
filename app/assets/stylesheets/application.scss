@@ -134,3 +134,33 @@ a:hover{
 .pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
 	color: #1c1e2F;
 }
+
+.status-remove{
+	color: #fff;
+	font-size: 20px;
+	display: inline-block;
+	min-width: 10px;
+	padding: 3px 7px;
+	font-weight: bold;
+	line-height: 1;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-align: center;
+	background-color: #d9534f;
+	border-radius: 10px;
+}
+
+.status-ok{
+	color: #fff;
+	font-size: 20px;
+	display: inline-block;
+	min-width: 10px;
+	padding: 3px 7px;
+	font-weight: bold;
+	line-height: 1;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-align: center;
+	background-color: #295e8c;
+	border-radius: 10px;
+}

@@ -26,9 +26,8 @@
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Gênero</th>
+          <th>Status</th>
           <th>Telefone</th>
-          <th>Data de Pagamento</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -37,9 +36,12 @@
         <% @clients.each do |client| %>
         <tr>
           <td class="td-name"><%= image_tag client.avatar.url(:medium), class: 'img-responsive img-thumbnail img-circle img-table' %> <%= client.name.capitalize %></td>  
-          <td><%= client.gender %></td>
+          <% if client.active? %>
+          <td><span class="glyphicon glyphicon-ok status-ok" aria-hidden="true"></span></td>
+          <% elsif !client.active?%>
+          <td><span class="glyphicon glyphicon-remove status-remove" aria-hidden="true"></span></td>
+          <%end %>
           <td><%= client.telephone %></td>
-          <td><%= client.payment_date %></td>
           <td><%= link_to 'exibir', client, class: "btn btn-default" %></td>
           <% if client.active? %>
           <td><%= link_to 'editar', edit_client_path(client), class: "btn btn-default" %></td>
@@ -47,7 +49,8 @@
           <% if client.active? %>
           <td><%= link_to 'Desabilitar', client, method: :delete, data: { confirm: 'Você tem certeza que deseja desabilitar?' }, class: "btn btn-danger" %></td>
           <% elsif !client.active?%>
-          <td><%= link_to 'Habilitar', client, method: :delete, data: { confirm: 'Você tem certeza que deseja reabilitar?' }, class: "btn btn-primary" %></td>
+          <td colspan="1"></td>
+          <td><%= link_to 'Habilitar', client, method: :delete, data: { confirm: 'Você tem certeza que deseja reabilitar?' }, class: "btn btn-primary", style: "min-width: 91px;" %></td>
           <% end %>
         </tr>
       </tr>
