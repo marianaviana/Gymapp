@@ -1,6 +1,6 @@
 class Api::GymcardsController < Api::BaseController
   def index
-    @client   = Client.find(params[:client_id])
+    @client   = Client.where(authentication_token: params[:user_token])
     @gymcards = @client.gymcards
   end
 
