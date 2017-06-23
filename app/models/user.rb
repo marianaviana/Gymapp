@@ -5,6 +5,8 @@
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :gymcards
+
   before_save :set_role
 
   def role_admin?
