@@ -5,7 +5,7 @@
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :gymcards
+  has_many :gymcards, foreign_key: 'employee_id'
 
   before_save :set_role
 
