@@ -64,11 +64,18 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
-    authorize @employee, :destroy?
-    @employee.destroy
-    respond_to do |format|
-      format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
-      format.json { head :no_content }
+    @employee = Employee.find(params[:id])
+    if @employee.active
+      @employee.update_attribute(:active, false)
+      redirect_to employees_path(employee_id: @employee.id),
+      notice: 'Funcionário desativado com sucesso'
+    elsif !@employee.active
+      @employee.update_attribute(:active, true)
+      redirect_to employees_path(employee_id: @employee.id),
+      notice: 'Funcionário reativado com sucesso'
+    else
+      redirect_to clients_path(client_id: @client.id),
+      alert: 'Algum problema ocorreu tentando desativar o funcionário'
     end
   end
 

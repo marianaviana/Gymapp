@@ -20,7 +20,7 @@
           <tbody>
             <tr>
               <td><%= @assessment.client.name %></td>
-              <td><%= @assessment.client.age %></td>
+              <td ><%= @assessment.client.age %></td>
               <td><%= @assessment.client.gender %></td>
             </tr>
           </tbody>
@@ -42,7 +42,7 @@
             <tr>
               <td><%= date_formatter(@assessment.created_at)%></td>
               <td><%= time_formatter(@assessment.created_at)%></td>
-              <td><%= translate_type(@assessment.type)%></td>
+              <td ><%= translate_type(@assessment.type)%></td>
               <td><%= date_formatter(@assessment.next_assessment_date) %></td>
             </tr>
           </tbody>
@@ -64,17 +64,17 @@
           <tbody>
             <tr>
               <th>Gordura Atual</th>
-              <td><%= @imc.imc %> %</td>
+              <td style="text-align:right"><%= @imc.imc %> %</td>
             </tr>
 
             <tr>
               <th>Ideal Minimo</th>
-              <td><%= @imc.min %> %</td>
+              <td style="text-align:right"><%= @imc.min %> %</td>
             </tr>
 
             <tr>
               <th>Ideal Máximo</th>
-              <td><%= @imc.max %> %</td>
+              <td style="text-align:right"><%= @imc.max %> %</td>
             </tr>
           </tbody>
         </table>
@@ -83,17 +83,17 @@
           <tbody>
             <tr>
               <th>Peso Atual</th>
-              <td><%= @assessment.weight %></td>
+              <td style="text-align:right"><%= @assessment.weight %></td>
             </tr>
 
             <tr>
               <th>Ideal Minimo</th>
-              <td><%= @imc.ideal_min_weight %></td>
+              <td style="text-align:right"><%= @imc.ideal_min_weight %></td>
             </tr>
 
             <tr>
               <th>Ideal Máximo</th>
-              <td><%= @imc.ideal_max_weight %></td>
+              <td style="text-align:right"><%= @imc.ideal_max_weight %></td>
             </tr>
           </tbody>
         </table>
@@ -102,7 +102,7 @@
           <tbody>
             <tr>
               <th>Resultado</th>
-              <td><%= "O imc é #{@imc.imc} e o resultado foi #{@imc.message}" %></td>
+              <td style="text-align:right"><%= "O imc é #{@imc.imc} e o resultado foi #{@imc.message}" %></td>
             </tr>
           </tbody>
         </table>
@@ -114,28 +114,28 @@
           <tbody>
             <tr>
               <th>Massa Corporal</th>
-              <td><%= @assessment.weight %> Kg</td>
+              <td style="text-align:right"><%= @assessment.weight %> Kg</td>
             </tr>
 
             <tr>
               <th>Estatura</th>
-              <td><%= @assessment.height %> cm</td>
+              <td style="text-align:right"><%= @assessment.height %> cm</td>
             </tr>
           </tbody>
         </table>
-
+      </div>
       <div class="col-md-6">
         <h3>Perímetros</h3>
         <table class ="table table-striped table-hover" >
           <tbody>
             <tr>
               <th>Cintura</th>
-              <td><%= @assessment.waist %> cm</td>
+              <td style="text-align:right"><%= @assessment.waist %> cm</td>
             </tr>
 
             <tr>
               <th>Quadril</th>
-              <td><%= @assessment.hip %> cm</td>
+              <td style="text-align:right"><%= @assessment.hip %> cm</td>
             </tr>
           </tbody>
         </table>
@@ -144,11 +144,13 @@
           <tbody>
             <tr>
               <th>Padrão de pontos</th>
-              <td>ICQ</td>
+              <td style="text-align:right">ICQ</td>
             </tr>
           </tbody>
         </table>
       </div>
+
+
 
       <div class="col-md-12">
         <div class="alert alert-info" role="alert">
@@ -158,7 +160,5 @@
         <%= link_to 'Voltar', assessments_path(client_id: @client.id) %>
 
       </div>
-
     </div>
   </div>
-</div>

@@ -146,18 +146,75 @@ icq_list.each do |icq|
 end
 
 
+#Cria Equipamentos
 
-#Cria Funcionários e Clientes
+Equipment.create(name: 'Apolete', quantity: '2', aquisition_date: Date.today, weight: '82', max_weight: '450')
+
+Equipment.create(name: 'Barra Fixa', quantity: '4', aquisition_date: Date.today, weight: '82', max_weight: '250')
+
+Equipment.create(name: 'Bicicleta horizontal', quantity: '3', aquisition_date: Date.today, weight: '45', max_weight: '300')
+
+Equipment.create(name: 'Bicicleta vertical', quantity: '4', aquisition_date: Date.today, weight: '48,6', max_weight: '250')
+
+(25..30).each do |number|
+  Equipment.create(name: "Dumbbell #{number} Kg", quantity: '4', aquisition_date: Date.today, weight: "#{number}", max_weight: '400')
+end
+
+Equipment.create(name: 'Elíptico magnético', quantity: '2', aquisition_date: Date.today, weight: '50', max_weight: '308')
+
+Equipment.create(name: 'Esteira Elétrica', quantity: '4', aquisition_date: Date.today, weight: '48,6', max_weight: '250')
+
+Equipment.create(name: 'Flexor', quantity: '1', aquisition_date: Date.today, weight: '60', max_weight: '450')
+
 (1..10).each do |number|
+  Equipment.create(name: "Halter #{number} Kg", quantity: '4', aquisition_date: Date.today, weight: "#{number}", max_weight: '400')
+end
+
+Equipment.create(name: 'Máquina Scott', quantity: '2', aquisition_date: Date.today, weight: '72', max_weight: '450')
+
+Equipment.create(name: 'Polia inferior', quantity: '2', aquisition_date: Date.today, weight: '132', max_weight: '120')
+
+Equipment.create(name: 'Polia superior', quantity: '2', aquisition_date: Date.today, weight: '132', max_weight: '120')
+
+Equipment.create(name: 'Prancha abdominal', quantity: '3', aquisition_date: Date.today, weight: '55', max_weight: '350')
+
+Equipment.create(name: 'Puxador vertical articulado', quantity: '3', aquisition_date: Date.today, weight: '55', max_weight: '350')
+
+Equipment.create(name: 'Remada cavalinho com banco T', quantity: '2', aquisition_date: Date.today, weight: '72', max_weight: '450')
+
+Equipment.create(name: 'Remada sentado articulado', quantity: '2', aquisition_date: Date.today, weight: '78', max_weight: '350')
+
+Equipment.create(name: 'Supino declinado', quantity: '2', aquisition_date: Date.today, weight: '78', max_weight: '350')
+
+Equipment.create(name: 'Supino inclinado', quantity: '3', aquisition_date: Date.today, weight: '76', max_weight: '350')
+
+Equipment.create(name: 'Supino reto', quantity: '2', aquisition_date: Date.today, weight: '77', max_weight: '350')
+
+Equipment.create(name: 'Supino vertical', quantity: '3', aquisition_date: Date.today, weight: '72', max_weight: '350')
+
+Equipment.create(name: 'Voador dorsal', quantity: '2', aquisition_date: Date.today, weight: '72', max_weight: '450')
+
+#Cria Clientes
+
+(1..5).each do |number|
   Client.create(email: 	"cliente#{number}@gmail.com", name: "Cliente#{number}", position: 'Admin', 
-    gender: 'Masculino', birth_date: Date.today, rg: 000000000, cpf: 00000000, 
+    gender: 'Masculino', birth_date: Date.today-9125, rg: 000000000, cpf: 00000000, 
     address: 'Rua x', telephone: 99999999, blood_type: 'O-', 
     subscription_date: Date.today, payment_date: Date.today+11, admission_date: Date.today+10)
 end
 
+(5..10).each do |number|
+  Client.create(email:  "cliente#{number}@gmail.com", name: "Cliente#{number}", position: 'Admin', 
+    gender: 'Masculino', birth_date: Date.today-7300, rg: 000000000, cpf: 00000000, 
+    address: 'Rua x', telephone: 99999999, blood_type: 'O-', 
+    subscription_date: Date.today, payment_date: Date.today+11, admission_date: Date.today+10)
+end
+
+#Cria Funcionários
+
 (1..10).each do |number|
   Employee.create(email: 	"empregado#{number}@gmail.com", name: "Empregado#{number}", position: 'Personal', 
-    gender: 'Masculino', birth_date: Date.today, rg: 000000000, cpf: number, 
+    gender: 'Masculino', birth_date: Date.today-10220, rg: 000000000, cpf: number, 
     address: 'Rua x', telephone: 99999999, blood_type: 'O-', 
     subscription_date: Date.today, password: '123456', password_confirmation: '123456',
     payment_date: Date.today+11, admission_date: Date.today+10)
@@ -165,8 +222,8 @@ end
 
 
 luiza = Employee.create(name: 'Luiza', position: 'Admin', birth_date: Date.new(1993, 07, 30),
-                        rg: '12345', cpf: '12345556', telephone: '2294528525', 
-                        admission_date: Date.today, email: 'meloluiza@live.com', admin: true)
+  rg: '12345', cpf: '12345556', telephone: '2294528525', 
+  admission_date: Date.today, email: 'meloluiza@live.com', admin: true)
 
 luiza.password =  '123456' 
 luiza.password_confirmation =  '123456'

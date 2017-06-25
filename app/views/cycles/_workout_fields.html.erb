@@ -6,6 +6,12 @@
     <div class="form-inputs" style="padding: 10px;">
       <div class="row">
         <div class="col-md-3">
+          <%= f.association :grouptype, label: 'Grupo Muscular' %>
+        </div>
+        <div class="col-md-3">
+          <%= f.association :exercise, label: 'Exercício' %>
+        </div>
+        <div class="col-md-3">
           <%= f.input :name, label: 'Nome' %>
         </div>
         <div class="col-md-3">
