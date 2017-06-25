@@ -27,9 +27,6 @@ gem 'wkhtmltopdf-binary-edge'
 gem 'highcharts-rails'
 gem 'lazy_high_charts'
 gem 'simple_token_authentication', '~> 1.0'
-gem 'graphviz'
-gem 'rails-erd'
-
 
 group :development, :test do
   gem 'byebug', platform: :mri

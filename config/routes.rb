@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     resources :gymcards do
       resources :cycles
     end
+
+    resources :assessments
   end  
 
   resources :gymcards do

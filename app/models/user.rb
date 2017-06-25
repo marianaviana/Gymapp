@@ -6,6 +6,7 @@
   :recoverable, :rememberable, :trackable, :validatable
 
   has_many :gymcards, foreign_key: 'employee_id'
+  has_many :assessments, foreign_key: 'employee_id'
 
   before_save :set_role
 

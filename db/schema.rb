@@ -76,20 +76,20 @@ ActiveRecord::Schema.define(version: 20170621163533) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "exercises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "exercises", force: :cascade do |t|
     t.string   "name"
     t.integer  "grouptype_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
-  create_table "grouptypes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "grouptypes", force: :cascade do |t|
     t.string   "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "gymcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "gymcards", force: :cascade do |t|
     t.integer  "employee_id"
     t.integer  "client_id"
     t.datetime "created_at",                 null: false
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 20170621163533) do
     t.text     "allergy"
     t.text     "obs"
     t.date     "subscription_date"
-    t.integer  "payment_date"
+    t.date     "payment_date"
     t.date     "admission_date"
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(version: 20170621163533) do
     t.string   "type"
     t.boolean  "admin",                              default: false
     t.string   "authentication_token",    limit: 30
-    t.boolean  "active",                                default: true
+    t.boolean  "active",                             default: true
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

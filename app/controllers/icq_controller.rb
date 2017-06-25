@@ -21,8 +21,8 @@ class IcqController < ApplicationController
   end
 
   def show
-    @protocol7 = IcqCalculation.new(@assessment)
-    @imc       = ImcCalculation.new(@assessment)
+    @icq = IcqCalculation.new(@assessment)
+    @imc = ImcCalculation.new(@assessment)
 
     respond_to do |format|
       format.html
