@@ -9,6 +9,9 @@
         <thead>
           <tr>
             <th>Nome</th>
+            <th>Grupo Muscular</th>
+            <th>Exercício</th>
+            <th>Nome</th>
             <th>Equipamento</th>
             <th>Série</th>
             <th>Sequência</th>
@@ -20,6 +23,9 @@
         <tbody>
           <% @cycle.workouts.each do |workout| %>
           <tr>
+            <td><%= workout.name %></td>
+            <td><%= workout.grouptype.name %></td>
+            <td><%= workout.exercise.name %></td>
             <td><%= workout.name %></td>
             <td><%= workout.equipment.name %></td>
             <td><%= workout.serie %></td>

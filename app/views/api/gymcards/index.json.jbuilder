@@ -16,6 +16,14 @@ json.gymcards do
       json.workouts cycle.workouts do |workout|
         json.extract! workout, :id, :name, :sequence, :serie, :load, :obs
 
+        json.grouptype do
+          json.name workout.grouptype.name
+        end
+
+        json.exercise do
+          json.name workout.exercise.name
+        end
+
         json.equipment do
           json.id workout.equipment.id
           json.name workout.equipment.name

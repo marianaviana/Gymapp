@@ -249,3 +249,11 @@ Client.all.each do |client|
     IcqAssessment.create(client_id: client.id, weight: "85", height: "181", waist: "65", hip: "65", next_assessment_date: "2017-01-20", employee: Employee.last )
   end
 end
+
+
+g = Grouptype.create(name: "Peitoral")
+Exercise.create(name: 'Supino', grouptype: g)
+Exercise.create(name: 'Voador', grouptype: g)
+
+t = Grouptype.create(name: "Pernas")
+Exercise.create(name: 'Abdutora', grouptype: t)

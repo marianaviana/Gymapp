@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'cycles/update_exercises', as: 'update_exercises'
+
   namespace :api do
     devise_for :users
 
