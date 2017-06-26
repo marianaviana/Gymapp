@@ -12,22 +12,19 @@
 
 ActiveRecord::Schema.define(version: 20170626090752) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "assessments", force: :cascade do |t|
+  create_table "assessments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "client_id"
     t.integer  "employee_id"
-    t.float    "bodyfat"
-    t.float    "ideal_max"
-    t.float    "ideal_min"
-    t.float    "weight"
-    t.float    "height"
-    t.float    "ideal_min_weight"
-    t.float    "ideal_max_weight"
-    t.float    "fat_weight"
-    t.float    "lean_body_mass"
-    t.float    "fat_body_mass"
+    t.float    "bodyfat",              limit: 24
+    t.float    "ideal_max",            limit: 24
+    t.float    "ideal_min",            limit: 24
+    t.float    "weight",               limit: 24
+    t.float    "height",               limit: 24
+    t.float    "ideal_min_weight",     limit: 24
+    t.float    "ideal_max_weight",     limit: 24
+    t.float    "fat_weight",           limit: 24
+    t.float    "lean_body_mass",       limit: 24
+    t.float    "fat_body_mass",        limit: 24
     t.integer  "tricipital"
     t.integer  "peitoral"
     t.integer  "subescapular"
@@ -35,37 +32,37 @@ ActiveRecord::Schema.define(version: 20170626090752) do
     t.integer  "suprailiaca"
     t.integer  "abdominal"
     t.integer  "coxa"
-    t.float    "neck"
-    t.float    "shoulder"
-    t.float    "chest"
-    t.float    "waist"
-    t.float    "abdomen"
-    t.float    "hip"
+    t.float    "neck",                 limit: 24
+    t.float    "shoulder",             limit: 24
+    t.float    "chest",                limit: 24
+    t.float    "waist",                limit: 24
+    t.float    "abdomen",              limit: 24
+    t.float    "hip",                  limit: 24
     t.string   "right_arm"
     t.string   "left_arm"
     t.string   "right_forearm"
     t.string   "left_forearm"
-    t.float    "right_thigh"
-    t.float    "left_thigh"
-    t.float    "right_calf"
-    t.float    "left_calf"
+    t.float    "right_thigh",          limit: 24
+    t.float    "left_thigh",           limit: 24
+    t.float    "right_calf",           limit: 24
+    t.float    "left_calf",            limit: 24
     t.string   "result"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "type"
     t.date     "next_assessment_date"
-    t.boolean  "done",                 default: false
+    t.boolean  "done",                            default: false
     t.string   "goal"
   end
 
-  create_table "check_ins", force: :cascade do |t|
+  create_table "check_ins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "cycles", force: :cascade do |t|
+  create_table "cycles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "index"
     t.integer  "gymcard_id"
     t.datetime "created_at", null: false
@@ -73,31 +70,31 @@ ActiveRecord::Schema.define(version: 20170626090752) do
     t.string   "name"
   end
 
-  create_table "equipment", force: :cascade do |t|
+  create_table "equipment", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "quantity"
     t.date     "aquisition_date"
-    t.float    "weight"
-    t.float    "max_weight"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.float    "weight",          limit: 24
+    t.float    "max_weight",      limit: 24
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
-  create_table "exercises", force: :cascade do |t|
+  create_table "exercises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "grouptype_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
-  create_table "grouptypes", force: :cascade do |t|
+  create_table "grouptypes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
   end
 
-  create_table "gymcards", force: :cascade do |t|
+  create_table "gymcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "employee_id"
     t.integer  "client_id"
     t.datetime "created_at",                 null: false
@@ -106,28 +103,28 @@ ActiveRecord::Schema.define(version: 20170626090752) do
     t.boolean  "active",      default: true
   end
 
-  create_table "icqs", force: :cascade do |t|
-    t.float    "min"
-    t.float    "max"
+  create_table "icqs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.float    "min",        limit: 24
+    t.float    "max",        limit: 24
     t.string   "message"
     t.integer  "age_min"
     t.integer  "age_max"
     t.string   "gender"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
-  create_table "imcs", force: :cascade do |t|
-    t.float    "min"
-    t.float    "max"
+  create_table "imcs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.float    "min",        limit: 24
+    t.float    "max",        limit: 24
     t.string   "message"
     t.integer  "age"
     t.string   "gender"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
-  create_table "roles", force: :cascade do |t|
+  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "resource_type"
     t.integer  "resource_id"
@@ -137,19 +134,19 @@ ActiveRecord::Schema.define(version: 20170626090752) do
     t.index ["name"], name: "index_roles_on_name", using: :btree
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                              default: "",    null: false
-    t.string   "encrypted_password",                 default: "",    null: false
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "email",                                 default: "",    null: false
+    t.string   "encrypted_password",                    default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,     null: false
+    t.integer  "sign_in_count",                         default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
     t.string   "name"
     t.string   "position"
     t.string   "gender"
@@ -158,12 +155,12 @@ ActiveRecord::Schema.define(version: 20170626090752) do
     t.string   "cpf"
     t.string   "address"
     t.string   "telephone"
-    t.text     "disabilities"
+    t.text     "disabilities",            limit: 65535
     t.string   "blood_type"
-    t.text     "allergy"
-    t.text     "obs"
+    t.text     "allergy",                 limit: 65535
+    t.text     "obs",                     limit: 65535
     t.date     "subscription_date"
-    t.date     "payment_date"
+    t.integer  "payment_date"
     t.date     "admission_date"
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
@@ -174,30 +171,30 @@ ActiveRecord::Schema.define(version: 20170626090752) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "type"
-    t.boolean  "admin",                              default: false
+    t.boolean  "admin",                                 default: false
+    t.boolean  "active",                                default: true
     t.string   "authentication_token",    limit: 30
-    t.boolean  "active",                             default: true
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "users_roles", id: false, force: :cascade do |t|
+  create_table "users_roles", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
     t.integer "role_id"
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
   end
 
-  create_table "workouts", force: :cascade do |t|
+  create_table "workouts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "serie"
     t.integer  "sequence"
     t.integer  "load"
-    t.text     "obs"
+    t.text     "obs",          limit: 65535
     t.integer  "equipment_id"
     t.integer  "cycle_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "grouptype_id"
     t.integer  "exercise_id"
   end

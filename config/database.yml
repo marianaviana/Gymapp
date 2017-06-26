@@ -1,17 +1,15 @@
-development:
-  adapter: postgresql
-  encoding: unicode
-  database: gym_development
+default: &default
+  adapter: mysql2
+  encoding: utf8
   pool: 5
-  username: postgres
-  password:
-  host: localhost
+  username: root
+  password: root
+  
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: gym_production
-  pool: 5
-  username: postgres
-  password:
-  host: localhost
+development:
+  <<: *default
+  database: gymapp_development
+
+test:
+  <<: *default
+  database: gymapp_test

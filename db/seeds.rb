@@ -93,7 +93,7 @@ imc_list = [
 
 imc_list.each do |imc|
   Imc.create(imc)
-nend
+end
 
 #Matriz ICQ
 icq_list = [
@@ -200,14 +200,14 @@ Equipment.create(name: 'Voador dorsal', quantity: '2', aquisition_date: Date.tod
   Client.create(email: 	"cliente#{number}@gmail.com", name: "Cliente#{number}", position: 'Admin', 
     gender: 'Masculino', birth_date: Date.today-9125, rg: 000000000, cpf: 00000000, 
     address: 'Rua x', telephone: 99999999, blood_type: 'O-', 
-    subscription_date: Date.today, payment_date: Date.today+11, admission_date: Date.today+10)
+    subscription_date: Date.today, payment_date: 11, admission_date: Date.today+10, authentication_token: rand(10000000000000000000))
 end
 
 (5..10).each do |number|
   Client.create(email:  "cliente#{number}@gmail.com", name: "Cliente#{number}", position: 'Admin', 
     gender: 'Masculino', birth_date: Date.today-7300, rg: 000000000, cpf: 00000000, 
     address: 'Rua x', telephone: 99999999, blood_type: 'O-', 
-    subscription_date: Date.today, payment_date: Date.today+11, admission_date: Date.today+10)
+    subscription_date: Date.today, payment_date: 15, admission_date: Date.today+10, authentication_token: rand(20000000000000000000))
 end
 
 #Cria Funcionários
@@ -217,7 +217,7 @@ end
     gender: 'Masculino', birth_date: Date.today-10220, rg: 000000000, cpf: number, 
     address: 'Rua x', telephone: 99999999, blood_type: 'O-', 
     subscription_date: Date.today, password: '123456', password_confirmation: '123456',
-    payment_date: Date.today+11, admission_date: Date.today+10)
+    payment_date: 11, admission_date: Date.today+10)
 end
 
 
