@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 20170626090752) do
     t.string   "goal"
   end
 
+  create_table "check_ins", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cycles", force: :cascade do |t|
     t.integer  "index"
     t.integer  "gymcard_id"

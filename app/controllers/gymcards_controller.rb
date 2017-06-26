@@ -32,6 +32,14 @@ class GymcardsController < ApplicationController
   def show
     @client  = Client.find(params[:client_id])
     @gymcard = @client.gymcards.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'gymcard',
+               template: 'gymcards/show.pdf.erb'
+      end
+    end
   end
 
   def edit
