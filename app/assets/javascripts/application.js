@@ -33,6 +33,7 @@ $(document).ready(function() {
           url: '/cycles/update_exercises',
           data: { grouptype_id: $(this).val(), id: element_id },
           success: function(data) {
+            console.log('sucess');
           }
         });
       });

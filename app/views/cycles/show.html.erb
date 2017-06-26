@@ -24,10 +24,10 @@
           <% @cycle.workouts.each do |workout| %>
           <tr>
             <td><%= workout.name %></td>
-            <td><%= workout.grouptype.name %></td>
-            <td><%= workout.exercise.name %></td>
+            <td><%= workout.grouptype.try(:name) %></td>
+            <td><%= workout.exercise.try(:name) %></td>
             <td><%= workout.name %></td>
-            <td><%= workout.equipment.name %></td>
+            <td><%= workout.equipment.try(:name) %></td>
             <td><%= workout.serie %></td>
             <td><%= workout.sequence %></td>
             <td><%= workout.load %></td>
