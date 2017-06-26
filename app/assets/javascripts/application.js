@@ -21,8 +21,11 @@
 
 
 $(document).on('turbolinks:load', function() {
+  $('[id*="_exercise_id"]').prop('disabled', true);
+
   $('[id*="_grouptype_id"]').change(function() {
     var element_id = $(this).attr('id').match(/\d+/)[0];
+    $("#cycle_workouts_attributes_"+element_id+"_exercise_id").prop('disabled', false);
 
     $.ajax({
       url: '/cycles/update_exercises',
@@ -37,8 +40,11 @@ $(document).on('turbolinks:load', function() {
 
     })
     .on('cocoon:after-insert', function() {
+      $('[id*="_exercise_id"]').prop('disabled', true);
+
       $('[id*="_grouptype_id"]').change(function() {
         var element_id = $(this).attr('id').match(/\d+/)[0];
+        $("#cycle_workouts_attributes_"+element_id+"_exercise_id").prop('disabled', false);
 
         $.ajax({
           url: '/cycles/update_exercises',
