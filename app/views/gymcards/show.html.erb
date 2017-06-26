@@ -30,6 +30,8 @@
             <thead>
               <tr>
                 <th>Nome:</th>
+                <th>Grupo Muscular</th>
+                <th>Exercício</th>
                 <th>Equipamento:</th>
                 <th>Série:</th>
                 <th>Sequência:</th>
@@ -41,7 +43,9 @@
               <% cycle.workouts.each do |workout| %>
               <tr>
                 <td class="td-name"><%= workout.name.capitalize %></td>
-                <td class="td-name"><%= workout.equipment.name.capitalize %></td>
+                <td class="td-name"><%= workout.equipment.try(:name) %></td>
+                <td class="td-name"><%= workout.equipment.try(:name) %></td>
+                <td class="td-name"><%= workout.equipment.try(:name)%></td>
                 <td><%= workout.serie %></td>
                 <td><%= workout.sequence %></td>
                 <td><%= workout.load %></td>
