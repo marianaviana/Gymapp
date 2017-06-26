@@ -1,5 +1,7 @@
 # coding: utf-8
 class Client < User
+  acts_as_token_authenticatable
+
   has_attached_file :avatar, styles: { medium: "300x300#", thumb: "100x100#" }, default_url: "https://click.dj/img/no-avatar.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
@@ -25,4 +27,5 @@ class Client < User
     false
   end
   self.per_page = 5
+
 end
