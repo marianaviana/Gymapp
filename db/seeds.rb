@@ -93,7 +93,7 @@ imc_list = [
 
 imc_list.each do |imc|
   Imc.create(imc)
-end
+nend
 
 #Matriz ICQ
 icq_list = [
