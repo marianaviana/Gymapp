@@ -46,6 +46,8 @@ json.assessments do
 
     json.client do
       json.name assessment.client.name
+      json.age assessment.client.age
+      json.gender assessment.client.gender
     end
   end 
 end
