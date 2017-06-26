@@ -197,7 +197,7 @@ Equipment.create(name: 'Voador dorsal', quantity: '2', aquisition_date: Date.tod
 #Cria Clientes
 
 (1..5).each do |number|
-  Client.create(email: 	"cliente#{number}@gmail.com", name: "Cliente#{number}", position: 'Admin', 
+  Client.create(email:  "cliente#{number}@gmail.com", name: "Cliente#{number}", position: 'Admin', 
     gender: 'Masculino', birth_date: Date.today-9125, rg: 000000000, cpf: 00000000, 
     address: 'Rua x', telephone: 99999999, blood_type: 'O-', 
     subscription_date: Date.today, payment_date: 11, admission_date: Date.today+10, authentication_token: rand(10000000000000000000))
@@ -213,7 +213,7 @@ end
 #Cria Funcionários
 
 (1..10).each do |number|
-  Employee.create(email: 	"empregado#{number}@gmail.com", name: "Empregado#{number}", position: 'Personal', 
+  Employee.create(email:  "empregado#{number}@gmail.com", name: "Empregado#{number}", position: 'Personal', 
     gender: 'Masculino', birth_date: Date.today-10220, rg: 000000000, cpf: number, 
     address: 'Rua x', telephone: 99999999, blood_type: 'O-', 
     subscription_date: Date.today, password: '123456', password_confirmation: '123456',
@@ -251,9 +251,96 @@ Client.all.each do |client|
 end
 
 
-g = Grouptype.create(name: "Peitoral")
-Exercise.create(name: 'Supino', grouptype: g)
-Exercise.create(name: 'Voador', grouptype: g)
+a = Grouptype.create(name: "Peitoral Maior")
+Exercise.create(name: 'Supino declinado com halteres', grouptype: a)
+Exercise.create(name: 'Supino declinado com barra', grouptype: a)
+Exercise.create(name: 'Flexão de tronco entre bancos', grouptype: a)
+Exercise.create(name: 'Supino com halteres em banco plano', grouptype: a)
+Exercise.create(name: 'Supino com barra em banco plano', grouptype: a)
+Exercise.create(name: 'Crucifixo com halteres em banco plano', grouptype: a)
 
-t = Grouptype.create(name: "Pernas")
-Exercise.create(name: 'Abdutora', grouptype: t)
+
+b = Grouptype.create(name: "Peitoral Menor")
+Exercise.create(name: 'Supino inclinado com halteres', grouptype: b)
+Exercise.create(name: 'Supino inclinado com barra', grouptype: b)
+Exercise.create(name: 'Crucifixo com halteres em banco inclinado', grouptype: b)
+Exercise.create(name: 'Supino inclinado na máquina smith', grouptype: b)
+
+c = Grouptype.create(name: "Costas")
+Exercise.create(name: 'Remada inclinado com barra', grouptype: c)
+Exercise.create(name: 'Remada com halter', grouptype: c)
+Exercise.create(name: 'Remada T', grouptype: c)
+Exercise.create(name: 'Puxada na polia alta', grouptype: c)
+Exercise.create(name: 'Remada na polia baixa', grouptype: c)
+
+d = Grouptype.create(name: "Bíceps")
+Exercise.create(name: 'Rosca scott com barra reta', grouptype: d)
+Exercise.create(name: 'Rosca direta com halteres em banco inclinado', grouptype: d)
+Exercise.create(name: 'Rosca direta com barra reta', grouptype: d)
+Exercise.create(name: 'Rosca direta com halteres', grouptype: d)
+Exercise.create(name: 'Rosca concentrada com halter', grouptype: d)
+Exercise.create(name: 'Rosca direta com barra EZ', grouptype: d)
+
+
+e = Grouptype.create(name: "Tríceps")
+Exercise.create(name: 'Tríceps testa declinado com barra EZ', grouptype: e)
+Exercise.create(name: 'Tríceps pulley com barra V', grouptype: e)
+Exercise.create(name: 'Fundos entre bancos', grouptype: e)
+Exercise.create(name: 'Tríceps pulley a uma mão', grouptype: e)
+Exercise.create(name: 'Press francês com acessório corda', grouptype: e)
+Exercise.create(name: 'Press francês com halter a uma mão', grouptype: e)
+Exercise.create(name: 'Supino com barra reta', grouptype: e)
+
+f = Grouptype.create(name: "Deltóides - Medial")
+Exercise.create(name: 'Elevação lateral com halter em banco inclinado', grouptype: f)
+Exercise.create(name: 'Elevação lateral com halteres', grouptype: f)
+Exercise.create(name: 'Elevação lateral com halteres sentado', grouptype: f)
+Exercise.create(name: 'Elevação lateral com polia baixa', grouptype: f)
+
+g = Grouptype.create(name: "Deltóides - Posterior")
+Exercise.create(name: 'Elevação lateral tronco inclinado com halteres', grouptype: g)
+Exercise.create(name: 'Elevação lateral tronco inclinado com polia baixa', grouptype: g)
+
+h = Grouptype.create(name: "Deltóides - Anterior")
+Exercise.create(name: 'Desenvolvimento com halteres', grouptype: h)
+Exercise.create(name: 'Elevação frontal com halteres', grouptype: h)
+Exercise.create(name: 'Desenvolvimento com barra à frente', grouptype: h)
+
+i = Grouptype.create(name: "Quadríceps")
+Exercise.create(name: 'Agachamento com barra', grouptype: i)
+Exercise.create(name: 'Cadeira extensora', grouptype: i)
+Exercise.create(name: 'Agachamento hack', grouptype: i)
+Exercise.create(name: 'Leg Press', grouptype: i)
+Exercise.create(name: 'Agachamento na máquina smith', grouptype: i)
+
+j = Grouptype.create(name: "Isquiotibiais - Bíceps femoral")
+Exercise.create(name: 'Máquina flexora em pé', grouptype: j)
+Exercise.create(name: 'Mesa flexora', grouptype: j)
+Exercise.create(name: 'Cadeira flexora', grouptype: j)
+Exercise.create(name: 'Levantamento terra', grouptype: j)
+
+k = Grouptype.create(name: "Isquiotibiais - Semitendínoso")
+Exercise.create(name: 'Cadeira flexora', grouptype: k)
+Exercise.create(name: 'Máquina flexora', grouptype: k)
+Exercise.create(name: 'Mesa flexora', grouptype: k)
+
+l = Grouptype.create(name: "Panturrilhas")
+Exercise.create(name: 'Panturrilha em pé', grouptype: l)
+Exercise.create(name: 'Panturrilha no leg press', grouptype: l)
+Exercise.create(name: 'Elevação de panturrilha em pé', grouptype: l)
+Exercise.create(name: 'Elevação de panturrilha com uma perna só', grouptype: l)
+Exercise.create(name: 'Elevação de panturrilha sentado', grouptype: l)
+Exercise.create(name: 'Elevação de panturrilha com barra', grouptype: l)
+Exercise.create(name: 'Elevação de panturrilha donkey', grouptype: l)
+Exercise.create(name: 'Agachamento com salto e halteres', grouptype: l)
+Exercise.create(name: 'Elevação de panturrilha com carga em uma perna', grouptype: l)
+Exercise.create(name: 'Elevação de panturrilha sentado com barra', grouptype: l)
+
+m = Grouptype.create(name: "Abdominais")
+Exercise.create(name: 'Abdominal crunch', grouptype: m)
+Exercise.create(name: 'Abdominal infra', grouptype: m)
+Exercise.create(name: 'Abdominal na bola', grouptype: m)
+Exercise.create(name: 'Abdominal oblíquo alternado', grouptype: m)
+Exercise.create(name: 'Abdominal infra no banco', grouptype: m)
+Exercise.create(name: 'Abdominal na roldana alta', grouptype: m)
+
