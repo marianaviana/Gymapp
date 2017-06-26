@@ -5,6 +5,7 @@ class Client < User
 
   has_attached_file :attachment
   has_many :gymcards
+  has_many :check_ins
   has_many :assessments
   has_many :pollock3
   has_many :pollock7
