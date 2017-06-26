@@ -8,7 +8,11 @@ class IcqCalculation
   end
 
   def message
-    icqs.find { |a| icq > a.min && imc < a.max && a.gender == gender && age >= a.age_min && age<= a.age_max  }.message
+    if age.is_a?(String)
+      age
+    else
+      icqs.find { |a| icq > a.min && icq < a.max && a.gender == gender && age >= a.age_min && age <= a.age_max  }.message
+    end
   end
 
   def icq
@@ -19,10 +23,10 @@ class IcqCalculation
 
   def age
     value = Time.now.year - client.birth_date.year
-    if value = 20 && value < 70
+    if value > 20 && value < 70
       value
     else
-      puts 'Protocolo não indicado para idade do cliente'
+      'Protocolo não indicado para idade do cliente'
     end
   end
 

@@ -1,5 +1,5 @@
 class CyclesController < ApplicationController
-  before_filter :load_gymcard
+  before_filter :load_gymcard, except: [:update_exercises]
 
   def index
     @cycles = @gymcard.cycles
@@ -36,6 +36,14 @@ class CyclesController < ApplicationController
                   notice: 'Ciclo edit com sucesso.'
     else
       render :edit
+    end
+  end
+
+  def update_exercises
+    @exercises  = Exercise.where("grouptype_id = ?", params[:grouptype_id])
+    @element_id = params[:id]
+    respond_to do |format|
+      format.js
     end
   end
 

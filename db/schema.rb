@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170625235349) do
+ActiveRecord::Schema.define(version: 20170626090752) do
 
   create_table "assessments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "client_id"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20170625235349) do
     t.string   "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "gymcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -172,6 +173,8 @@ ActiveRecord::Schema.define(version: 20170625235349) do
     t.string   "type"
     t.boolean  "admin",                                 default: false
     t.boolean  "active",                                default: true
+    t.string   "authentication_token",    limit: 30
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -192,6 +195,8 @@ ActiveRecord::Schema.define(version: 20170625235349) do
     t.integer  "cycle_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "grouptype_id"
+    t.integer  "exercise_id"
   end
 
 end

@@ -14,8 +14,34 @@
 //= require jquery_ujs
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
-//= require highcharts/highstock
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require cocoon
 //= require_tree .
+
+
+$(document).ready(function() {
+  $('#workouts')
+    .on('cocoon:before-insert', function() {
+
+    })
+    .on('cocoon:after-insert', function() {
+      $('[id*="_grouptype_id"]').change(function() {
+        var element_id = $(this).attr('id').match(/\d+/)[0];
+
+        $.ajax({
+          url: '/cycles/update_exercises',
+          data: { grouptype_id: $(this).val(), id: element_id },
+          success: function(data) {
+          }
+        });
+      });
+    })
+    .on("cocoon:before-remove", function() {
+      $("#owner_from_list").show();
+      $("#owner a.add_fields").show();
+    })
+    .on("cocoon:after-remove", function() {
+      /* e.g. recalculate order of child items */
+    });
+});

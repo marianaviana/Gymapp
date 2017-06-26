@@ -1,29 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">Checkins</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <%= simple_form_for :checkin, url: client_check_ins_path, method: :get do |f| %>
+          <div class="input-group">
+            <div class="col-md-6">
+              <%= f.input :initial, label: 'Data Inicial', as: :date, html5: true, class: "form-control" %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :final, label: 'Data Final', as: :date, html5: true, class: "form-control" %>
+            </div>
+            <div class="col-md-4">
+                <%= f.submit 'Buscar', class: 'btn btn-default'%>
+            </div>
+          </div>
+        <% end  %>
+      </div>
+    </div>
+    <br>
+    <table class ="table table-striped table-hover" >
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Data</th>
+        </tr>
+      </thead>
 
-<h1>Check Ins</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Client</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @check_ins.each do |check_in| %>
-      <tr>
-        <td><%= check_in.name %></td>
-        <td><%= check_in.client_id %></td>
-        <td><%= link_to 'Show', check_in %></td>
-        <td><%= link_to 'Edit', edit_check_in_path(check_in) %></td>
-        <td><%= link_to 'Destroy', check_in, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Check In', new_check_in_path %>
+      <tbody>
+        <% @check_ins.each do |checkin| %>
+          <tr>  
+            <td><%= checkin.client.name %></td>
+            <td><%= date_formatter(checkin.client.created_at) %></td>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="center">
+      <%= will_paginate @check_ins, previous_label: '« Anterior', next_label: 'Proxima »', renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
+</div>

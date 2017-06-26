@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :check_ins
   devise_for :users, controllers: { registrations: 'registrations' }
   root 'home#index'
 
-  resources :clients
+  resources :clients do 
+    resources :check_ins
+  end
+
   resources :employees
   resources :equipment
 
@@ -16,6 +18,21 @@ Rails.application.routes.draw do
       get 'clients'
     end
   end
+
+  get 'cycles/update_exercises', as: 'update_exercises'
+
+  namespace :api do
+    devise_for :users
+
+    resources :gymcards do
+      resources :cycles
+    end
+
+    resources :assessments
+    resources :clients do 
+      resources :check_ins
+    end
+  end  
 
   resources :gymcards do
     resources :cycles

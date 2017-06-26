@@ -1,4 +1,3 @@
 class Exercise < ApplicationRecord
-	belongs_to :grouptype
-	
+  belongs_to :grouptype
 end

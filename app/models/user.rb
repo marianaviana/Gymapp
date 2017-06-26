@@ -5,6 +5,9 @@
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :gymcards, foreign_key: 'employee_id'
+  has_many :assessments, foreign_key: 'employee_id'
+
   before_save :set_role
 
   def role_admin?
