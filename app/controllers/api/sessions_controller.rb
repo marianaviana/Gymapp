@@ -15,7 +15,7 @@ class Api::SessionsController < ::Devise::SessionsController
       sign_in("user", resource)
 
       render json:  { success: true, auth_token: resource.authentication_token, 
-                      email: resource.email }
+                      email: resource.email, id: resource.id }
 
       return
     end

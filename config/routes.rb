@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     end
 
     resources :assessments
+    resources :clients
   end  
 
   resources :gymcards do
