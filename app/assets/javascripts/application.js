@@ -20,7 +20,18 @@
 //= require_tree .
 
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
+  $('[id*="_grouptype_id"]').change(function() {
+    var element_id = $(this).attr('id').match(/\d+/)[0];
+
+    $.ajax({
+      url: '/cycles/update_exercises',
+      data: { grouptype_id: $(this).val(), id: element_id },
+      success: function(data) {
+      }
+    });
+  });
+
   $('#workouts')
     .on('cocoon:before-insert', function() {
 
@@ -33,16 +44,12 @@ $(document).ready(function() {
           url: '/cycles/update_exercises',
           data: { grouptype_id: $(this).val(), id: element_id },
           success: function(data) {
-            console.log('sucess');
           }
         });
       });
     })
     .on("cocoon:before-remove", function() {
-      $("#owner_from_list").show();
-      $("#owner a.add_fields").show();
     })
     .on("cocoon:after-remove", function() {
-      /* e.g. recalculate order of child items */
     });
 });
