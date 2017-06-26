@@ -17,16 +17,16 @@ json.gymcards do
         json.extract! workout, :id, :name, :sequence, :serie, :load, :obs
 
         json.grouptype do
-          json.name workout.grouptype.name
+          json.name workout.grouptype.try(:name)
         end
 
         json.exercise do
-          json.name workout.exercise.name
+          json.name workout.exercise.try(:name)
         end
 
         json.equipment do
-          json.id workout.equipment.id
-          json.name workout.equipment.name
+          json.id workout.equipment.try(:id)
+          json.name workout.equipment.try(:name)
         end
       end
     end
