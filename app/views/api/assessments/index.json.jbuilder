@@ -25,7 +25,7 @@ json.assessments do
     end
 
     if assessment.type == "Pollock7"
-      json.pollock3 do
+      json.pollock7 do
         @protocol7 = Protocol7Calculation.new(assessment)
         json.fat_weight @protocol7.fat_weight
         json.lean_body_mass @protocol7.lean_body_mass
@@ -33,7 +33,7 @@ json.assessments do
     end
 
     if assessment.type == "IcqAssessment"
-      json.pollock3 do
+      json.icq do
         @icq = IcqCalculation.new(assessment)
         json.icq @icq.icq
         json.message @icq.message
