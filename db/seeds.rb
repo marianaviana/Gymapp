@@ -145,6 +145,19 @@ icq_list.each do |icq|
   Icq.create(icq)
 end
 
+(1..5).each do |number|
+  Client.create(email:  "cliente#{number}@gmail.com", name: "Cliente#{number}", position: 'Admin', 
+    gender: 'Masculino', birth_date: Date.today-9125, rg: 000000000, cpf: 00000000, 
+    address: 'Rua x', telephone: 99999999, blood_type: 'O-', 
+    subscription_date: Date.today, payment_date: 11, admission_date: Date.today+10, authentication_token: rand(10000000000000000000))
+end
+
+(5..10).each do |number|
+  Client.create(email:  "cliente#{number}@gmail.com", name: "Cliente#{number}", position: 'Admin', 
+    gender: 'Masculino', birth_date: Date.today-7300, rg: 000000000, cpf: 00000000, 
+    address: 'Rua x', telephone: 99999999, blood_type: 'O-', 
+    subscription_date: Date.today, payment_date: 15, admission_date: Date.today+10, authentication_token: rand(20000000000000000000))
+end
 
 #Cria Equipamentos
 
@@ -194,6 +207,7 @@ Equipment.create(name: 'Supino vertical', quantity: '3', aquisition_date: Date.t
 
 Equipment.create(name: 'Voador dorsal', quantity: '2', aquisition_date: Date.today, weight: '72', max_weight: '450')
 
+<<<<<<< d51217400696cacc241e34706697add895fadd08
 #Cria Clientes
 
 (1..5).each do |number|
@@ -237,18 +251,6 @@ mariana = Employee.create(name: 'Mariana', position: 'Admin', birth_date: Date.n
 mariana.password =  '123456'
 mariana.password_confirmation =  '123456'
 mariana.save
-
-Client.all.each do |client|
-  IcqAssessment.create(client_id: client.id, weight: "85", height: "181", waist: "65", hip: "65", next_assessment_date: "2017-05-20", employee: Employee.last )
-
-  if client.id >= 8
-    IcqAssessment.create(client_id: client.id, weight: "85", height: "181", waist: "65", hip: "65", next_assessment_date: "2017-07-20" , employee: Employee.last)
-  end
-
-  if client.id <=5
-    IcqAssessment.create(client_id: client.id, weight: "85", height: "181", waist: "65", hip: "65", next_assessment_date: "2017-01-20", employee: Employee.last )
-  end
-end
 
 
 a = Grouptype.create(name: "Peitoral Maior")

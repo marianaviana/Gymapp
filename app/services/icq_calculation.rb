@@ -19,6 +19,21 @@ class IcqCalculation
     (waist / hip).round(2)
   end
 
+  def min
+      if age.is_a?(String)
+        '-'
+      else
+        icqs.find { |a| icq > a.min && icq < a.max && a.gender == gender && age >= a.age_min && age <= a.age_max}.min
+      end
+    end
+
+    def max
+      if age.is_a?(String)
+        '-'
+      else
+        icqs.find { |a| icq > a.min && icq < a.max && a.gender == gender && age >= a.age_min && age <= a.age_max }.max
+      end
+    end
   private
 
   def age

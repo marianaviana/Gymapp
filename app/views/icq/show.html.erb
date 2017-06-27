@@ -57,59 +57,30 @@
           </tbody>
         </table>
       </div>
-
+      
       <div class="col-md-6">
         <h3>Resultados</h3>
         <table class ="table table-striped table-hover" >
           <tbody>
             <tr>
-              <th>Gordura Atual</th>
-              <td style="text-align:right"><%= @imc.imc %> %</td>
-            </tr>
-
-            <tr>
-              <th>Ideal Minimo</th>
-              <td style="text-align:right"><%= @imc.min %> %</td>
+              <th>ICQ</th>
+              <td style="text-align:right"><%= @icq.icq %> %</td>
             </tr>
 
             <tr>
               <th>Ideal Máximo</th>
-              <td style="text-align:right"><%= @imc.max %> %</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <table class ="table table-striped table-hover" >
-          <tbody>
-            <tr>
-              <th>Peso Atual</th>
-              <td style="text-align:right"><%= @assessment.weight %></td>
+              <td style="text-align:right"><%= @icq.max %> %</td>
             </tr>
 
-            <tr>
-              <th>Ideal Minimo</th>
-              <td style="text-align:right"><%= @imc.ideal_min_weight %></td>
-            </tr>
-
-            <tr>
-              <th>Ideal Máximo</th>
-              <td style="text-align:right"><%= @imc.ideal_max_weight %></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <table class ="table table-striped table-hover" >
-          <tbody>
             <tr>
               <th>Resultado</th>
-              <td style="text-align:right"><%= "O imc é #{@imc.imc} e o resultado foi #{@imc.message}" %></td>
+              <td style="text-align:right"><%= "O ICQ é #{@icq.icq} e o resultado foi #{@icq.message}" %></td>
             </tr>
           </tbody>
         </table>
-      </div>
-
-      <div class="col-md-6">
-        <h3>Biometria</h3>
+        </div>  
+        <div class="col-md-6">
+        <h3>Biometria e Perímetros</h3>
         <table class ="table table-striped table-hover" >
           <tbody>
             <tr>
@@ -121,13 +92,7 @@
               <th>Estatura</th>
               <td style="text-align:right"><%= @assessment.height %> cm</td>
             </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-md-6">
-        <h3>Perímetros</h3>
-        <table class ="table table-striped table-hover" >
-          <tbody>
+            
             <tr>
               <th>Cintura</th>
               <td style="text-align:right"><%= @assessment.waist %> cm</td>
@@ -139,21 +104,11 @@
             </tr>
           </tbody>
         </table>
-        <br/>
-        <table class ="table table-striped table-hover" >
-          <tbody>
-            <tr>
-              <th>Padrão de pontos</th>
-              <td style="text-align:right">ICQ</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      
+      </div>       
+        <br>
+        <br>
 
-
-
-      <div class="col-md-12">
-        
         <%= link_to 'Editar', edit_icq_path(@assessment, client_id: @client.id) %> |
         <%= link_to 'Voltar', assessments_path(client_id: @client.id) %>
 
