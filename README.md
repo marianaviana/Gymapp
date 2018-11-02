@@ -28,6 +28,9 @@ The  management in small gyms occurs in manual way. This requires a reasonable c
 
 * ...
 
+### Mobile app
+[Click here to view the mobile app](https://github.com/marianaviana/messy-react-native-app)
+
 ### Developers
 [Mariana Viana](http://github.com/marianaviana),
 [Luiza Melo](http://github.com/meloluiza)
