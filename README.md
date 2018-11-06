@@ -32,10 +32,10 @@ The  management in small gyms occurs in manual way. This requires a reasonable c
 [Click here to view the mobile app](https://github.com/marianaviana/messy-react-native-app)
 
 ### Developers
-- [Mariana Viana](http://github.com/marianaviana)
-- [Luiza Melo](http://github.com/meloluiza)
+
+![Mariana Viana](https://avatars3.githubusercontent.com/u/5909738?s=117&v=4)| ![Mariana Viana](https://avatars0.githubusercontent.com/u/26289799?s=117&v=4)
+:------------: | :------------:
+[Mariana Viana](http://github.com/marianaviana) | [Luiza Melo](http://github.com/meloluiza)
 
 ### Thanks
-- [Roberto Rosenhaim](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4658390P4)
-- [Rodrigo Vale](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4779035E5)
-- [Thiago Cifani](http://github.com/thiagocifani)
+[Roberto Rosenhaim](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4658390P4) / [Rodrigo Vale](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4779035E5) / [Thiago Cifani](http://github.com/thiagocifani)
